@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>FAQ</title>
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    #parse("/common/include.vm")
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+
+        <div class="faq-main">
+            <h2>F&Q</h2>
+            <div class="ques-box">
+                <p class="question">1.Do government bodies and official organizations accept translation done by Transn?</p>
+                <p class="answer">Yes. Certified translation done by Transn is accepted by all foreign embassies in Singapore and Singapore government bodies including: ICA, MOM, LTA, Traffic Police and etc.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">2. What language do we translate?</p>
+                <p class="answer">We translate the following languages, both from English and into English: <br/>
+                    Bahasa Indonesian<br/>
+                    Bahasa Melayu<br/>
+                    Bengali<br/>
+                    Burmese<br/>
+                    Chinese (Simplified)<br/>
+                    Chinese (Hong Kong)<br/>
+                    Chinese (Taiwan)<br/>
+                    Chinese (Simplified)<br/>
+                    Danish<br/>
+                    Dutch<br/>
+                    English<br/>
+                    French<br/>
+                    German<br/>
+                    Hindi<br/>
+                    Japanese<br/>
+                    Khmer<br/>
+                    Korean<br/>
+                    Lao<br/>
+                    Latin<br/>
+                    Portuguese<br/>
+                    Portuguese (Brazil)<br/>
+                    Russian<br/>
+                    Spanish<br/>
+                    Tamil<br/>
+                    Thai<br/>
+                    Vietnamese
+                </p>
+            </div>
+            <div class="ques-box">
+                <p class="question">3. How long will it take?</p>
+                <p class="answer">The standard turnaround time for certified translation service is 1 working day (Monday to Friday excluding public holidays). </p>
+            </div>
+            <div class="ques-box">
+                <p class="question">4. How do you translate so quickly?</p>
+                <p class="answer">We have a dedicated team of professional translators standing by to work on your documents as we understand time is very important to you.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">5. How do you ensure quality?</p>
+                <p class="answer">We select our translators through an extensive screening process. We do quality checks for each translated work by our full-time proofreading team and part-time native speakers. The submitted works are double checked by both team.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">6. What is notarization and do I need to do notarization for my documents?</p>
+                <p class="answer">Notarization is the official fraud-deterrent process that assures the parties of a transaction that a document is authentic, and can be trusted. It is a three-part process, performed by a Notary Public that includes of vetting, certifying and record keeping. According ICA guidelines, all translation documents must be notarized if a private translation company carries out translation. The notarization may also be required by foreign embassies in Singapore for immigration documents. </p>
+            </div>
+            <div class="ques-box">
+                <p class="question">7. What is involved in notarization?</p>
+                <p class="answer">Once our translator has completed and proofread a translation, we will print out a copy of the source documents and translated document. Then we will book an appointment with a local notary public where our Director will sign a declaration (affidavit) before the notary public to the effect that our translation is true, complete and accurate representation of the original document.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">8. How will I receive my translation work?</p>
+                <p class="answer">All of our translated documents are delivered as a soft copy through email after 1 working day. Please check and confirm all the content on the translated documents. If there is any discrepancy, please state all the changes you would like us to make in the box at the confirmation page on the website. The confirmed or amended hard copy (with or without notarization depending on your requirement) will be sent to you via free of charge post mail. You can also collect the documents from Transn International Singapore Office (10 Anson Road, International Plaza, #06-16 (S)079903).</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">9. Do I need to produce my original certificates in order to notarize my translation?</p>
+                <p class="answer">No, we only need a properly scanned copy of your certificate.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">10. How do I know that my documents are being translated?</p>
+                <p class="answer">Once the payment is completed, the system will automatically processes your order. You can check your order status anytime after logging in to Transn website under Order Management. The order status will be highlighted on your dashboard and marked "Translation Completed" if the translation job is done. The order status will show “Processing” if the translation job is not yet done.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">11.How do I get my receipts or invoice?</p>
+                <p class="answer">You will receive order receipt via email after the payment is made.</p>
+            </div>
+            <div class="ques-box">
+                <p class="question">12. What should I do if I need help?</p>
+                <p class="answer">
+                    1. You can leave a message to our customer service personnel at button right corner. <br/>
+					2. You can send an email to <a href="mailto:international@transn.com">international@transn.com</a>. <br/>
+					3. You can call or visit Transn Singapore Office at +65 6493 7321, 10 Anson Road #06-16 International Plaza Singapore 079903, Monday to Friday 9am-6pm, excluding public holidays. 
+                </p>
+            </div>
+            <form action="" id="fqForm">
+                <textarea name="" class="inp-txt"></textarea>
+                <p class="error">error</p>
+                <input type="button" value="SUBMIT" class="btn"/>
+            </form>
+        </div>
+
+        ##引入footer部分
+            #parse("/common/footer.vm")
+    </div>
+
+    <div class="mask-bg"></div>
+    <div class="mask-box mask-main"  style="padding-left:0;padding-right:0;" id="fqMask">
+        <a href="javascript:;" class="close">关闭</a>
+        <h2 style="font-size: 24px;color:#e03e25;">Submitted successfully!</h2>
+        <p style="font-size: 18px;padding:0 70px 50px">
+            Your message has been submitted successfully! <br/><br/>
+            Thank you so much for your questions and comments.
+        </p>
+        <a href="javascript:;" class="btn">OK</a>
+    </div>
+
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+    <script type="text/javascript" src="/scripts/pages/static/faq.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<div class="header">
+   <div class="header-top">
+       <div class="top-bar">
+            <div class="con clearfix">
+            	<div class="share-list">
+            	    <div class="bshare-custom share_list">
+            	        <a title="分享到" href="http://www.bshare.cn/share" id="bshare-shareto" class="bshare-more"></a>
+            	        <a title="Facebook" class="bshare-facebook" target="_blank" href="https://www.facebook.com/Transn-1725648007757718/?ref=bookmarks"></a>
+            	        <a title="Linkin" class="bshare-linkedin" target="_blank" href="http://www.linkedin.com/company/5020044?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A768238811481188809986%2CVSRPtargetId%3A5020044%2CVSRPcmpt%3Aprimary"></a>
+            	        <a title="GooglePlus" class="bshare-gplus" target="_blank" href="https://plus.google.com/b/116730854920958148722/116730854920958148722"></a>
+            	        <a title="Twitter" class="bshare-twitter" target="_blank" href="https://twitter.com/transn_global"></a>
+            	    </div>
+            	</div>	
+            	
+            	<div class="top-bar-left">
+            	    <span class="top-bar-icon1">(001) 888-992-4678</span>
+            	    <span class="top-bar-icon2"><a href="mailto:international@transn.com?subject=logo" style="color: #fff;">international@transn.com</a></span>
+            	</div>
+               <div class="top-bar-right clearfix">
+                   #*<div class="share-list">
+                       <div class="bshare-custom share_list">
+                           <a title="分享到" href="http://www.bshare.cn/share" id="bshare-shareto" class="bshare-more"></a>
+                           <a title="Facebook" class="bshare-facebook"></a>
+                           <a title="Linkin" class="bshare-linkedin"></a>
+                           <a title="GooglePlus" class="bshare-gplus"></a>
+                           <a title="Twitter" class="bshare-twitter"></a>
+                       </div>
+                   </div>*#
+                   <ul class="ulheight">
+                   	#*登陆以后*#
+					#if ($email)
+                   	<li>
+                     	<div class="btn-group pull-right btn-box" id="z_user">
+                        	 <button type="button" class="btn btn-Eng" data-toggle="dropdown">
+                        		<div class="z_login">
+                                	<img src="/images/index/images/z_user.png"/>
+                                	<span>User Center</span>
+                                </div>
+                        	</button>
+                        	<ul class="dropdown-menu" role="menu">
+								<li><a href="/userCenter/accoutSetting">Account Settings</a></li>
+                                <li><a href="/order/myOrders">Order Management</a></li>
+                                <li><a onclick="javascript:signOut()">Sign Out</a></li>
+                        	</ul>
+                        </div>
+                    </li>
+					#end
+                   	
+                   	#*<li>                        		
+                    	<div class="z_login">
+                     	<img src="http://www.transn.com/images/z_user.png"/>
+                     	<span>User Center</span>
+                     </div>
+                   	</li>*#
+                   	#*登陆之前*#
+                   	#*<li>
+                   		<div class="z_SIGNUP">
+                     	<span>SIGN UP  /</span>
+                     	<span>LOG IN</span>
+                     </div>
+                   	</li>*#
+                         </ul>
+                         	
+                      
+                    <div class="btn-group pull-right btn-box" id="btn-box">
+            		<button type="button" class="btn btn-Eng" data-toggle="dropdown">
+            			<div id="lang-wrap" class="lang-wrap CHIN"><a class="lang-tab" style="background-image:url(/images/index/images/icon3.png);">English</a>
+                            	<ul>
+                                <li><a href="" style="background-image:url(..);"></a></li>
+                               </ul>
+                   			</div>
+            		</button>
+            		<ul class="dropdown-menu" role="menu">
+            			<li><a href="http://www.transn.com/cn/">简体中文</a></li>
+            		</ul>
+            	</div>  
+                       </div>
+            </div>
+       </div>
+   </div>
+   
+   <div class="top-head">
+        <div class="con clearfix">
+            <a href="http://www.transn.com/index.html" class="logo"><img src="/images/index/images/logo.png" alt="logo" title="logo"/></a>
+            <div class="nav-list" id="navList">
+                <ul>
+                    <li class="nav-item "><a href="javascript:;">Products & Services</a></li>
+                    <li class="nav-item"><a href="javascript:;">Solutions</a></li>
+                    
+                    <li class="nav-item"><a href="http://www.transn.com/blog/">News & EVENTS</a></li>
+                    <li class="nav-item"><a href="javascript:;">About us</a></li>
+                    <li class="nav-item"><a href="javascript:;">Contact Us</a></li>
+                    <li class="nav-item"><a href="javascript:;">Join us</a></li>
+                    <li class="nav-item nav-item1"><a href="http://www.transn.com/home/order">Get Your Free Quote</a></li>
+                    ##<li class="nav-item nav-item-last"><a href="javascript:;"><img src="http://www.transn.com/images/index/images/icon14.png" alt="search" title="search"/></a></li>*#
+                </ul>
+            </div>
+            <a href="javascript:;" class="mobile-btn" id="mobileBtn"><img src="/images/index/images/menu.png"></a>
+        </div>
+   </div>
+   <div class="sub-menu-warp" id="subMenuWarp">
+        <div class="sub-menu clearfix">
+            <ul>
+                <li><a href="http://www.transn.com/product/documents-translation-service.html">Documents Translation</a></li>
+                <li><a href="http://www.transn.com/product/website-translation.html">Website Translation</a></li>
+                <li><a href="http://www.transn.com/product/software-localization.html">Software Localization</a></li>
+                <li><a href="http://www.transn.com/product/certified-translation-service.html">Certified Translation</a></li>
+                <li><a href="http://www.transn.com/product/translator-training-and-certification.html">Translator Training And Certification</a></li>
+                <li><a href="http://www.transn.com/product/transcription-talent-subtitling.html" id="active1">Transcription, Dubbing, Subtitling</a></li>
+                <li><a href="http://www.transn.com/product/book-translation-service.html">Book Translation Service</a></li>
+            </ul>
+        </div>
+        <div class="sub-menu clearfix">
+            <ul>
+                <li><a href="http://www.transn.com/solutions/equipment-manufacturing-solution.html">Equipment Manufacturing Solutions</a></li>
+                <li><a href="http://www.transn.com/solutions/international-engineering-solution.html">International Engineering Solutions</a></li>
+                <li><a href="http://www.transn.com/solutions/electronic-game-industry-solution.html">Electronic Game Industry Solutions</a></li>
+                <li><a href="http://www.transn.com/solutions/information-service-industry-solution.html">Information Service Industry Solutions</a></li>
+                <li><a href="http://www.transn.com/solutions/news-media-solution.html">News Media Solutions</a></li>
+            </ul>
+        </div>
+        
+        <div class="sub-menu clearfix">
+            <ul>
+                #*<li><a href="###">Content page</a></li>
+                <li><a href="###">Listing page</a></li>*#
+            </ul>
+        </div>
+        
+        <div class="sub-menu clearfix">
+            <ul>
+                <li><a href="http://www.transn.com/about/company-profile.html">Company Information</a></li>
+                <li><a href="http://www.transn.com/about/partners.html">Partners</a></li>
+				<li><a href="/busPartner/addBusPartner">Agent Application</a></li>
+            </ul>
+        </div>
+        <div class="sub-menu clearfix">
+            <ul>
+                <li><a href="http://www.transn.com/contact-us/contact-information.html">Contact Information</a></li>
+                <li><a href="http://www.transn.com/contact-us/service-promise.html">Service Promise</a></li>
+                <li><a href="http://www.transn.com/contact-us/branch-company.html">Branch Office</a></li>
+                <li><a href="http://www.transn.com/contact-us/free-translation-quote.html">Free Translation Quote</a></li>
+            </ul>
+        </div>
+        <div class="sub-menu clearfix">
+            <ul>
+                <li><a href="http://www.transn.com/join-us/internal-training.html">Internal Training</a></li>
+                <li><a href="http://www.transn.com/join-us/join-transn-as-an-employee.html">Join Transn as an Employee</a></li>
+                <li><a href="http://www.transn.com/join-us/join-transn-as-a-translator.html">Join Transn as a Translator</a></li>
+            </ul>
+        </div>
+        <div class="sub-menu clearfix">
+            <ul>
+                #*<li><a href="###">Content page</a></li>
+                <li><a href="###">Listing page</a></li>*#
+            </ul>
+        </div>
+   </div>
+   
+   <div class="mobileview">
+       <div class="mobile-warp" id="mobileWarp">
+                <div class="mobile-menu">
+                    <div class="mobile-menu-left">
+                        <div class="menu">
+                            <h3>PRODUCT & SERVICES</h3>
+                            <ul>
+                            	<li><a href="http://www.transn.com/product/documents-translation-service.html">Documents Translation</a></li>
+    	                        <li><a href="http://www.transn.com/product/website-translation.html">Website Translation</a></li>
+    	                        <li><a href="http://www.transn.com/product/software-localization.html">Software Localization</a></li>
+    	                        <li><a href="http://www.transn.com/product/certified-translation-service.html">Certified Translation</a></li>
+    	                        <li><a href="http://www.transn.com/product/transcription-talent-subtitling.html">Transcription, Dubbing, Subtitling</a></li>  
+    	                        <li><a href="http://www.transn.com/product/book-translation-service.html">Book Translation Service</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu">
+                            <h3>CONTACT US</h3>
+                            <ul>
+                                <li><a href="http://www.transn.com/contact-us/contact-information.html">Contact Information</a></li>
+    	                        <li><a href="http://www.transn.com/contact-us/service-promise.html">Service Promise</a></li>
+    	                        <li><a href="http://www.transn.com/contact-us/branch-company.html">Branch Company</a></li>
+    	                        <li><a href="http://www.transn.com/contact-us/free-translation-quote.html">Free Translation Quote</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu">
+                            <h3>JOIN US</h3>
+                            <ul>
+                                <li><a href="http://www.transn.com/join-us/internal-training.html">Internal Training</a></li>
+    	                        <li><a href="http://www.transn.com/join-us/join-transn-as-an-employee.html">Join Transn as an Employee</a></li>
+    	                        <li><a href="http://www.transn.com/join-us/join-transn-as-a-translator.html">Join Transn as a Translator</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu mobile-search-btn">
+                            <a href="javascript:;" class="search"><img src="http://www.transn.com/images/index/images/search.png" alt="search"/></a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu-right">
+                        <div class="menu">
+                            <h3>SOLUTIONS</h3>
+                            <ul>
+                                <li><a href="http://www.transn.com/solutions/equipment-manufacturing-solution.html">Equipment Manufacturing Solutions</a></li>
+    	                        <li><a href="http://www.transn.com/solutions/international-engineering-solution.html">International Engineering Solutions</a></li>
+    	                        <li><a href="http://www.transn.com/solutions/electronic-game-industry-solution.html">Electronic Game Industry Solutions</a></li>
+    	                        <li><a href="http://www.transn.com/solutions/information-service-industry-solution.html">Information Service Industry Solutions</a></li>
+    	                        <li><a href="http://www.transn.com/solutions/news-media-solution.html">News Media Solutions</a></li>
+                            </ul>
+                        </div>
+                        
+                        
+                        <div class="menu">
+                            <h3> <a href="http://www.transn.com/product/documents-translation-service.html">NEWS & EVENTS</a></h3>
+                            <ul>
+                                #*<li><a href="###">Content page</a></li>
+                                <li><a href="###">Listing page</a></li>*#
+                            </ul>
+                        </div>
+                        <div class="menu">
+                            <h3>ABOUT US</h3>
+                            <ul>
+                                <li><a href="http://www.transn.com/about/company-profile.html">Company Information</a></li>
+                            	<li><a href="http://www.transn.com/about/partners.html">Partners</a></li>
+								<li><a href="/busPartner/addBusPartner">Agent Application</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="menu">
+                            <h3> <a href="http://www.transn.com/home/order">PLACE ORDER</a></h3>
+                            <ul>
+                                #*<li><a href="###">Content page</a></li>
+                                <li><a href="###">Listing page</a></li>*#
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                #*<div class="mobile-search">
+                    <p class="inp-warp"><input type="text" class="inp" placeholder="Software localization"/></p>
+                    <ul class="search-list">
+                        <li>Software localization</li>
+                        <li>Transcription,talent,subtitling</li>
+                        <li>Software localization</li>
+                        <li>Transcription,talent,subtitling</li>
+                    </ul>
+                </div>*#
+       </div>
+   </div>    
+<script>
+//自动获取nav高度
+$(function(){
+	var navHeight = $('.header').height();	
+	$('.nav-box').height(navHeight);
+	//屏幕宽度变化时
+	window.onresize=function(){
+		navHeight=0;
+		var navHeight = $('.header').height();
+		$('.nav-box').height(navHeight);
+	}
+})
+
+		$(function(){
+//      		//鼠标放导航上
+//      		$('#navList').on('mouseenter', '.nav-item', function () {
+//		        $('#navList .nav-item').removeClass('active');
+//		        $('#subMenuWarp .sub-menu').stop().slideUp(500);
+//		        $('.mobile-search').stop().slideUp(500);
+//		        $(this).addClass('active');
+//		        var num=$(this).index()*1;
+//		        if(num==6){
+//		        	alert(1);
+//		        	$(this).removeClass('active');
+//		        }
+//		        
+//		        if(num==2||num==6){
+//		        	
+//		        }else{
+//		        	$('#subMenuWarp .sub-menu').eq($(this).index()).stop().slideDown(500);
+//		        }
+//		        
+//		    	});
+		    	//鼠标放在放大镜上
+		    	$('#subMenuWarp').on('mouseleave', '.sub-menu', function () {
+			        $('#subMenuWarp .sub-menu').stop().slideUp(500);
+			    });
+			
+			    $('#navList').on('mouseenter', '.nav-item-last', function () {
+			        $('.mobile-search').stop().slideDown(500);
+			    });
+		    })
+        	
+		    $(function(){
+				var i=0;
+				$('#mobileBtn').on('click', function () {
+					i++;
+					if(i%2==0){
+						$('#mobileWarp').find('.mobile-menu').stop().slideUp(500);
+				        $('#mobileWarp').on('click', '.mobile-search-btn', function () {
+				            $('#mobileWarp').find('.mobile-menu').stop().show();
+				            $('#mobileWarp .mobile-search').stop().slideUp(500);
+				        });
+					}else{
+						$('#mobileWarp').find('.mobile-menu').stop().slideDown(500);
+				        $('#mobileWarp').on('click', '.mobile-search-btn', function () {
+				            $('#mobileWarp').find('.mobile-menu').stop().hide();
+				            $('#mobileWarp .mobile-search').stop().slideDown(500);
+				        });
+					}
+		        
+		    });
+				
+			})
+		    
+		$(function(){
+//			$('#mobileWarp').on('mouseleave',function(){
+//		        $('#mobileWarp').find('.mobile-menu').stop().slideUp();
+//		    });
+		
+		    $('.mobile-search').on('mouseleave', function () {
+		        $(this).stop().slideUp(500);
+		    });
+		})
+</script>
+</div>

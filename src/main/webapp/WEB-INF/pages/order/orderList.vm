@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My order list</title>
+    #parse("/common/include.vm")
+	##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+	<link rel="stylesheet" href="/css/orderList.css"/>
+	<script type="text/javascript" charset="utf-8" src="/scripts/pages/order/orderList.js"></script>
+	#*[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]*#
+	<script type="text/html" id="tpl_list_table">
+           <ul>
+        		{{# 
+        			var len = d.resultList.length;
+        			for(var i = 0; i < len; i++){ 
+    					var status = d.resultList[i].status;
+    					var payStatus = d.resultList[i].payStatus;
+						/**订单状态：1-未支付;2-进行中;3-未确认;4-已完成;-1-无状态*/
+						var orderSatatus = getOrderStatus(status, payStatus);
+						var orderSatatusName = getOrderStatusName(orderSatatus);
+    					var totalPrice = 0;
+						/**正在支付与已支付，将复选框灰掉*/
+						var className = (payStatus == 2 || payStatus == 3) ? "dischked" : "chk";
+						var disabled = (payStatus == 2 || payStatus == 3) ? "disabled" : "";
+        		}}
+        			<li class="table-list clearfix">
+                        <p class="slt-warp"><input type="checkbox" class="chk-inp" name="checkbox_td" onclick="checkOne(this, 'chkAll');" value="{{d.resultList[i].id}}" {{disabled}}/><span class="{{className}}"></span></p>
+                        <div class="order">
+                            <p class="order-num">Order number:{{d.resultList[i].orderNo}}</p>
+                            <div class="clearfix">
+                                <p class="order-time">Order date and time:{{formatDateTime(d.resultList[i].createDate)}}</p>
+                                <p class="order-state">Order Status:{{orderSatatusName}}</p>
+                            </div>
+                            <div class="order-table clearfix">
+								{{# 
+									/**1-未支付*/
+									if(orderSatatus == 1){ 
+								}}
+								<div class="order-state order-state-unpaid">订单状态</div>
+								{{# 
+									} 
+									/**2-进行中*/
+									else if(status == 2){ 
+								}}
+								<div class="order-state order-state-process">订单状态</div>
+								{{# 
+									}
+									/**3-未确认*/
+									else if(orderSatatus == 3){
+								}}
+                                <div class="order-state order-state-confirm">订单状态</div>
+								{{# 
+									} 
+									/**4-已完成*/
+									else if(status == 4){ 
+								}}
+								<div class="order-state order-state-completed">订单状态</div>
+								{{# 
+									} 
+								}}
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td class="country">FILE NAME/URLFILE NAME/URL</td>
+                                            <td class="country">TURNAROUND AND PRICES</td>
+											<td class="country">OPTIONS</td>
+											<td class="country">FILE SIZE</td>
+											<td class="country">LENGTH</td>
+											<td class="country">DELIVERY DATE</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+        							{{# 
+        								var mdOrderFileList = d.resultList[i].mdOrderFileListOrg;
+        								var len1 = mdOrderFileList.length;
+        								for(var j = 0; j < len1; j++){ 
+											var currentPrice = 0;
+											if(!$.string.isNullOrEmpty(mdOrderFileList[j].price)){
+												currentPrice = parseFloat(mdOrderFileList[j].price).toFixed(4);
+											}
+											/*totalPrice = accAdd(totalPrice,currentPrice).toFixed(4);*/
+        							}}
+                                        <tr>
+                                            <td class="country">{{$.nullToEmpty(mdOrderFileList[j].fileName)}}<br>{{$.nullToEmpty(mdOrderFileList[j].remarks)}}</td>
+                                            <td class="country">{{getTrunronundTime(d.resultList[i].turnaroundTime)}}</td>
+                                            <td class="country">{{getOrtherServices(d.resultList[i].otherServices)}}</td>
+                                            <td class="country">{{$.nullToEmpty(mdOrderFileList[j].size)}}M</td>
+                                            <td class="country">{{$.nullToEmpty(mdOrderFileList[j].length)}}min</td>
+											<td class="country">{{$.nullToEmpty(formatDate(d.resultList[i].deliveryDate))}}</td>
+                                        </tr>
+        							{{# } }} 
+                                    </tbody>
+                                </table>
+                                <div class="table-bot clearfix">
+									{{# 
+										/**允许操作：1-取消,支付;2-确认;3-评价;-1无操作*/
+										var orderOparation = getOrderOparation(status, payStatus);
+    									/**1-取消*/
+    									if(orderOparation == 1){
+    								}}
+                                    <a onclick="javascript:cancalOrder('{{encryptedStr(d.resultList[i].id)}}');" class="cancel">Cancel the order</a>
+									{{# 
+    									}
+    								}}
+                                    <p class="order-price">Order total: $ {{parseFloat(d.resultList[i].price).toFixed(2)}}</p>
+                                </div>
+								{{# 
+									/**支付按钮，1-支付*/
+									if(orderOparation == 1){
+								}}
+								 <a href="javascript:showPayBox(false, '{{encryptedStr(d.resultList[i].id)}}');" class="order-btn red">Pay</a>
+								{{# 
+									}
+    								/**确认按钮：2-确认*/
+    								else if(orderOparation == 2){
+    							}}
+                                <a href="orderDetail?orderId={{encryptedStr(d.resultList[i].id)}}" class="order-btn black">Confirm</a>
+								{{# 
+									} 
+									/**评价按钮，3-评价*/
+									else if(orderOparation == 3){ 
+								}}
+								 <a href="javascript:showEvaluationBox('{{encryptedStr(d.resultList[i].id)}}');" class="order-btn black evaluate">Evaluation</a>
+								{{# 
+									} 
+								}}
+								<a href="orderDetail?orderId={{encryptedStr(d.resultList[i].id)}}" class="order-btn red">Detail</a>
+                            </div>
+                        </div>
+                    </li>
+        		{{# } }} 
+		   </ul>
+	</script>
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+        <div class="order-list">
+			<form action="/order/orderList" id="searchForm" name="searchForm" method="post" target="_blank">
+				<input type="hidden"  name="page" value="1" id="page"/>
+				<input type="hidden"  name="rows" value="4" id="rows"/>
+				<input type="hidden"  name="orderByClause" value="create_date desc" id="orderByClause"/>
+				<input type="hidden"  name="orderStatus" id="orderStatus"/>
+  			</form>
+            <div class="top clearfix">
+                <p class="slt-warp"><input type="checkbox" class="chk-inp" id="chkAll" name="chkAll" onclick="checkAllBox(this, 'checkbox_td');"/><span class="chk"></span><label for="chkAll">Select All</label></p>
+                <div class="spinner spinner-one">
+                    <p class="box" data-num="0"><span class="state">Order Status</span><a href="javascript:;">下拉箭头</a></p>
+                    <div class="spinner-box">
+                        <ul>
+                            <li>All orders</li>
+                            <li value="2">Unpaid orders</li>
+                            <li value="3">Paid orders</li>
+							<li value="4">Completed</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="javascript:showPayBox(true);" class="pay" id="pay">Merge Payments</a>
+            </div>
+    
+			<div class="bot clearfix" id="tableList">
+            	<div id="list_table">
+                 	#* 显示列表 ID不能修改 *#   
+            	</div>
+            	<div id="list_table_page">
+            		#* 分页  ID不能修改*#
+         		</div>
+			</div>
+        </div>
+       ##引入footer部分
+       #parse("/common/footer.vm")
+    </div>
+
+    <div class="mask-bg"></div>
+    <div class="mask-box mask-main" id="cancelOrder">
+        <a href="javascript:;" class="close">Close</a>
+        <h2>Are you sure to cancel the order? <br/> It can't be recovered after cancellation.</h2>
+        <p class="para">Please choose the reason of cancellation:</p>
+        <div class="reason spinner">
+            <p class="box" data-type="0"><span class="state">Reason</span><a href="javascript:;">下拉箭头</a></p>
+            <div class="spinner-box">
+                <ul>
+                    <li>Problems during payment</li>
+                    <li>Fill in a wrong information</li>
+                    <li>I don't need it</li>
+                </ul>
+            </div>
+        </div>
+        <a id="confirmBtn" class="btn cancel-confirm">Confirm</a>
+
+        <p class="mask-main-p">For any query, please call our customer service:(001) 888-992-4678</p>
+    </div>
+
+    <div class="mask-box" id="payBox" style="top:25%;">
+        <a href="javascript:closePayBox();" class="close">Close</a>
+        <p class="ask">Do you confirm to pay for all orders?</p>
+        <div class="btn-group clearfix">
+			<form action="/order/toPaypal" id="paypalForm" name="paypalForm" method="post" target="_blank">
+				<input type="hidden" name="orderId" id="payOrderId"/>
+			</form>
+            <a href="javascript:closePayBox();" class="no">NO</a>
+            <a href="javascript:toPaypal();" class="yes">YES</a>
+        </div>
+    </div>
+
+    <div class="mask-box mask-main" id="evaluate">
+        <a href="javascript:closeEvaluationBox();" class="close">Close</a>
+        <h2>Feedback</h2>
+        <p class="txt" style="text-align: center">How satisfied are you with our service?</p>
+        <div class="cmtStar" id="cmtStar">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <form action="">
+            <textarea name="" id="" class="cmtTxt" placeholder="Your comments are very important for us" maxlength="50"></textarea>
+            <p class="error"></p>
+        </form>
+        <a href="javascript:;" class="btn">Submit</a>
+    </div>
+</body>
+</html>

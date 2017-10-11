@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seller.extendEntity.dao.UserExtendMapper">
+	<!--  获取banner详情 -->
+	<select id="getSellerInfoBrief" parameterType="com.seller.entity.model.User" resultType="com.seller.extendEntity.vo.UserVo">
+		select u.id, u.USER_TYPE, u.VIP_FLAG, u.VIP_GRADE, w.BALANCE, w.ACTIVE_FUND, w.BLOCK_FUND
+		from USER u
+		left join WALLET w on u.ID = w.USER_ID where u.phone = #{phone};
+	</select>
+</mapper>

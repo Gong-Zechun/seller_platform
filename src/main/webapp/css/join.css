@@ -1,0 +1,28 @@
+.main{width: 80%;margin:4% auto;}
+.main .para{padding-top: 1em;font-size: 1.125em;}
+.main-list .list{margin:3% 0;}
+.main-list .list .fl{width: 48%;float: left;margin-right: 2%;}
+.main-list .list .fr{width: 48%;float: right;margin-left: 2%;}
+.main-list .list h3{font-size: 1.5em;padding:0.5em 0;border-bottom: 1px solid #dcdcdc;width: 60%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.main-list .list p{font-size: 1.125em;padding-top: 0.5em;}
+
+@media(max-width: 1400px){
+    .banner h1{height: 2em;}
+    .main-list .list h3{width: 100%;}
+    .main .para,.main-list .list p{font-size: 1em;}
+}
+
+@media(max-width: 1024px){
+    .banner h1{font-size: 2em;}
+    .main{width: 90%;}
+}
+@media(max-width: 768px){
+    .banner h1{font-size: 1.2em;}
+    .banner h1 span{display: inline;}
+    .main-list .list{margin:5% 0;}
+    .main-list .list .fl,.main-list .list .fr{width: 100%;float: none;margin:0;}
+    .main-list .list .fl{margin-bottom: 5%;}
+    .h2-title{font-size: 1.5em;padding:0.5em 0;}
+    .main-list .list h3{font-size: 1.125em;}
+    .main .para, .main-list .list p{font-size: 0.875em;}
+}

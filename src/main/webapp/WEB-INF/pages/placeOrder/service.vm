@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>service</title>
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    #parse("/common/include.vm")
+    <link rel="stylesheet" href="/css/order.css"/>
+</head>
+<body>
+    <!--隐藏域-->
+    <input type="hidden" id="deliverInput" value="$!sgOrderCeAddr.fetchType"/>
+
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+
+        <div class="order-step">
+            <ul class="clearfix">
+                <li class="li1">
+                    <p>1</p>
+                    <h2>Upload File</h2>
+                </li>
+                <li class="li2 active">
+                    <p>2</p>
+                    <h2>Service</h2>
+                </li>
+                <li class="li3">
+                    <p>3</p>
+                    <h2>Payment</h2>
+                </li>
+            </ul>
+        </div>
+
+        <div class="step-upload clearfix" id="stepUpload">
+            <div class="left">
+                <h2>Service</h2>
+                <div class="inner">
+                    <div class="ques-warp">
+                        <p class="question">Do you need Notarization service?</p>
+                        <div class="radio-warp radio-notar">
+                            #if($sgOrderCe.lawyer=="Yes")
+                                <span class="chk chked">单选按钮</span>
+                            #else
+                                <span class="chk">单选按钮</span>
+                            #end
+                            <span class="option">Yes, Notarization Service: $40 per document.*</span>
+                        </div>
+                        <div class="radio-warp radio-notar">
+                            #if($sgOrderCe.lawyer=="No")
+                                <span class="chk chked">单选按钮</span>
+                            #else
+                                <span class="chk">单选按钮</span>
+                            #end
+                            <span>No</span>
+                        </div>
+                    </div>
+
+                    <ul class="txt-list">
+                        <li><span>1. </span>Notarization of translated document(s) is required by ICA for PR application and may be
+                            required by embassies for immigration purposes.</li>
+                        <li><span>2. </span>Please tick the notarization box if you need our notarization service.</li>
+                        <li><span>3. </span>The charge of our notarization service is $40.</li>
+                        <li><span>4. </span>Please contact our customer service if you need further clarification of our notarization
+                            service.</li>
+                    </ul>
+
+                </div>
+                <div class="inner" id="deliverySrv">
+                    <div class="ques-warp">
+                        <p class="question">Do you need delivery service?</p>
+                        <div class="radio-warp radio-deliv">
+                            <span class="chk">单选按钮</span>
+                            <span class="option">Yes, please send me the documents by registered mail. </span>
+                        </div>
+                        <div class="inp-addr">
+                            #if($sgOrderCeAddr)
+                                <p class="inp-warp"><input type="text" class="inp l-inp" placeholder="Address" id="address" value="$!sgOrderCeAddr.addr"/></p>
+                                <p class="inp-warp clearfix">
+                                    <input type="text" class="inp inp1" placeholder="Addressee" id="addressee" value="$!sgOrderCeAddr.addressee"/>
+                                    <input type="text" class="inp inp2" placeholder="Phone" id="phone" value="$!sgOrderCeAddr.phone"/>
+                                </p>
+                                #else
+                                    <p class="inp-warp"><input type="text" class="inp l-inp" placeholder="Address" id="address" value="$!sysUser.address"/></p>
+                                    <p class="inp-warp clearfix">
+                                        <input type="text" class="inp inp1" placeholder="Addressee" id="addressee" value="$!sysUser.nickname"/>
+                                        <input type="text" class="inp inp2" placeholder="Phone" id="phone" value="$!sysUser.phone"/>
+                                    </p>
+                            #end
+                        </div>
+                        <div class="radio-warp radio-deliv">
+                            <span class="chk">单选按钮</span>
+                            <span>No, I will collect by myself when the documents are ready. </span>
+                        </div>
+                        <div class="pick-addr clearfix">
+                            <div class="ditu">
+                                <iframe src="http://www.google.cn/maps/embed?pb=!1m14!1m8!1m3!1d498.60366510184207!2d103.84579558637253!3d1.2757573641464133!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1cdd001f72bc5957!2sTransn+International+Singapore+Pte.+Ltd.!5e0!3m2!1szh-CN!2scn!4v1482893044513" width="90%" height="140" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                            <p class="addr">
+                                Pick-up Address: <br/>
+                                10 Anson Road #06-16 International Plaza S079903, Tanjong Pagar MRT Exit C.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner last-inner">
+                    <div class="ques-warp">
+                        <p class="question">Remarks:</p>
+                        <textarea id="leaveMsg" class="inp-txt"
+                                  placeholder="In order to avoid any delays in receiving the final translated documents, please indicate the preferred translation for person names, company names, school names and addresses. Please indicate all hand-written, illegible and unclear information which is likely to cause confusion on the original file(s).">$!remark</textarea>
+
+                    </div>
+                </div>
+##                <a href="uploadFilePage" class="prev-btn">Back</a>
+                <a onclick="javascript:backToUploadFilePage()" class="prev-btn">Back</a>
+            </div>
+
+            <div class="right">
+                <div class="right-inner right-inner-show">
+                    <h2>Order Summary</h2>
+                    <div class="div-box country clearfix">
+                        <p class="p-left">Country</p>
+                        <p class="p-right">$sgOrderCe.country</p>
+                    </div>
+                    <div class="div-box lang clearfix">
+                        <p class="p-left">Language</p>
+                        <p class="p-right">
+                            <span>$sgOrderCe.slan</span>
+                            <img src="/images/down.png" alt=""/>
+                            <span>$sgOrderCe.tlan</span>
+                        </p>
+                    </div>
+                    <ul class="order-file-list1" id="orderFileList">
+                    #foreach($file in $fileList)
+                        #set($index=$velocityCount)
+                        <li class="clearfix"><p class="file-name"> <span>$index</span>、 $file.filename </p><div class="file-num"><div><p id="pageNum">$!file.page</p>Page(s)</div></div></li>
+                    #end
+                    </ul>
+##                    <ul class="order-file-list" id="orderFileList">
+##                        <li class="clearfix"><p class="file-name"><span>1</span>.*****</p><p class="file-num">4Pages</p></li>
+##                        <li class="clearfix"><p class="file-name"><span>2</span>.*****</p><p class="file-num">4Pages</p></li>
+##                        <li class="clearfix"><p class="file-name"><span>3</span>.*****</p><p class="file-num">4Pages</p></li>
+##                        <li class="last clearfix"><p class="file-name"><span>4</span>.*****</p><p class="file-num">4Pages</p></li>
+##                    </ul>
+                    <p class="total">Order total: <br/><span>$<span id="price">$!sgOrder.price</span></span></p>
+                    <a class="next-btn" id="payNow">Pay now</a>
+                </div>
+                <div class="right-bot">
+					<form id="viewFullQuoteForm" action="/placeOrder/viewFullQuote" method="post" target="_blank">
+                		<input type="hidden" name="orderno" id="ordernoVFQF"/>
+						<input type="hidden" name="sgOrderCe.lawyer" id="lawyerVFQF"/>
+						<input type="hidden" name="sgOrderCeAddr.fetchType" id="fetchTypeVFQF"/>
+						<input type="hidden" name="sgOrderCeAddr.addr" id="addrVFQF"/>
+						<input type="hidden" name="sgOrderCeAddr.addressee" id="addresseeVFQF"/>
+						<input type="hidden" name="sgOrderCeAddr.phone" id="phoneVFQF"/>
+						<input type="hidden" name="remark" id="remarkVFQF"/>
+						<input type="hidden" name="price" id="priceVFQF"/>
+                    </form>
+                    <a href="javascript:viewFullQuote('$sgOrderCe.orderno');">View Full Quote</a>
+                    <p>If you complete payment by 18:00, <span class="nowdata"></span>, you will receive a confirmation email with a soft copy of the translation after 18:00, <span class="nowdata1"></span>.</p>
+                </div>
+            </div>
+        </div>
+
+        ##引入footer部分
+            #parse("/common/footer.vm")
+    </div>
+
+    <div class="mask-bg"></div>
+    <div class="mask-box pay-box" id="payNowBox">
+        <a href="javascript:;">关闭</a>
+        <p class="pay-txt">If you complete payment by <span>18:30 11/11/2106</span>, the soft copy of translated document(s) will be ready after <span>18:30, 12/11/2016</span><br/><br/>
+            Please check the soft copy and click confirm. We will then certify the confirmed copy with company seal. Any soft copy without your confirmation will not be processed further.  </p>
+        <a href="javascript:;" class="btn pay">PAY</a>
+    </div>
+
+    <div class="mask-box pay-box" id="paySuccess">
+        <a href="javascript:;" class="close">关闭</a>
+        <img src="/images/suc.png" alt="pay success"/>
+        <p class="pay-txt-suc">Your payment is successful!</p>
+        <a href="javascript:;" class="btn pay">PAY</a>
+    </div>
+
+    <div class="mask-box pay-box" id="payFail">
+        <a href="javascript:;" class="close">关闭</a>
+        <img src="/images/fail.png" alt="pay fail"/>
+        <p class="pay-txt-fail">Your payment is unsuccessful. <br/> System error. Please try again later.</p>
+        <a href="javascript:;" class="btn pay" style="margin-bottom: 20px;">Order management</a>
+        <a href="javascript:;" class="btn pay">Contact Customer Service</a>
+    </div>
+
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+    <script type="text/javascript" src="/scripts/pages/service.js"></script>
+    <!--隐藏域：存储orderid(非orderno))-->
+##    <input type="hidden" id="orderid" value="$orderid">
+    <form id="payForm" method="post" action="/order/toPaypal" target="_blank">
+        <input type="hidden" name="orderId" id="orderid" value=$!orderid />
+		<input type="hidden" name="orderno" id="orderNo" value=$!orderNo />
+    </form>
+</body>
+</html>

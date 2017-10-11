@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Pay Successfully</title>
+		#parse("/common/include.vm")
+        <link rel="stylesheet" href="/css/service.css"/>
+		<script>
+			$(function(){
+				var i = 5;
+				var timer = null;
+				timer = setInterval(function(){
+					i--;
+					$('.z_pay-timer span').html(i);	
+					if(i==0){
+						clearInterval(timer);
+						window.location.href="/index";
+					}
+				},1000)
+			})
+		</script>
+	</head>
+	<body>
+		<div class="warp">
+			##引入header部分
+            #parse("/common/header.vm")
+
+    		<div class="z_pay">
+    			<div class="z_pay-top">
+    				<img src="/images/suc.jpg" /><span>Payment successful</span>
+    			</div>
+    			<div class="z_pay-timer">
+    				<span>5</span> seconds later will automatically jump to the home page......
+    			</div>
+    			
+    			<button><a href="$!myOrders">Go to order management</a></button>
+    		</div>
+		</div>
+		##引入footer部分
+		#parse("/common/footer.vm")
+	</body>
+</html>

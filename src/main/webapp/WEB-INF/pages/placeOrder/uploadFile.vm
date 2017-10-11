@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>order unpaid</title>
+    #parse("/common/include.vm")
+    <link rel="stylesheet" href="/css/webuploader.css"/>
+    <link rel="stylesheet" href="/css/order.css"/>
+
+
+    <script type="text/javascript" src="/scripts/pages/uploadFile.js"></script>
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+
+        <div class="order-step">
+            <ul class="li1 clearfix">
+                <li class="active clearfix">
+                    <p>1</p>
+                    <h2>Upload File</h2>
+                </li>
+                <li class="li2">
+                    <p>2</p>
+                    <h2>Service</h2>
+                </li>
+                <li class="li3">
+                    <p>3</p>
+                    <h2>Payment</h2>
+                </li>
+            </ul>
+        </div>
+
+        <div class="step-upload clearfix">
+            <div class="left">
+                <h2>Country and language</h2>
+                <div class="upload-txt clearfix">
+                    <p>Please let us know in which country you will use the translated document(s) and the languages you would like us to translate from and to. This helps us to find you the most professional local translators. </p>
+                    <div class="upload-slt order-upload-slt clearfix">
+                        <div class="spinner spinner1" data-num="0">
+
+                            #if($sgOrderCe)
+                                    <p class="box"><span class="state">$sgOrderCe.country</span><a>下拉箭头</a></p>
+                                #else
+                                    <p class="box"><span class="state">Country</span><a href="javascript:;">下拉箭头</a></p>
+                            #end
+                            <div class="spinner-box">
+                                <ul>
+                                    <li>Singapore</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="spinner-warp spinner2-warp" data-num="0">
+                            <div class="spinner">
+                                #if($sgOrderCe)
+                                    <p class="box"><span class="state" id="sLan">$sgOrderCe.slan</span><a>下拉箭头</a></p>
+                                #else
+                                    <p class="box"><span class="state" id="sLan">Translate From</span><a>下拉箭头</a></p>
+                                #end
+                                <div class="spinner-box spinner-box-left">
+                                    <ul>
+                                        #foreach($lan in $sysLanList)
+                                            <li value=$lan.id><span></span><div class="select1">$lan.nameEn</div></li>
+                                        #end
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spinner-warp spinner3-warp" data-num="0">
+                            <div class="spinner">
+                                #if($sgOrderCe)
+                                    <p class="box"><span class="state" id="tLan">$sgOrderCe.tlan</span><a>下拉箭头</a></p>
+                                #else
+                                    <p class="box"><span class="state" id="tLan">Translate to</span><a>下拉箭头</a></p>
+                                #end
+                                <div class="spinner-box spinner-box-right">
+                                    <ul>
+                                        #foreach($lan in $sysLanList)
+                                            <li value=$lan.id><span></span><div class="select">$lan.nameEn</div></li>
+                                        #end
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Upload file</h2>
+                <div class="upload-box clearfix">
+                    <p>Please upload all the files need to be translated. <br/>
+                        You can upload maximum FIVE files.<br/>
+                        Maximum file size is 20M.<br/>
+                        File formats supported: .jpg, .jpeg, .gif, .png, .bmp, .pdf, .ppt, .pptx, .doc, .docx<br/>
+                        Please ensure all the information in the file(s) is clear and recognizable.</p>
+                    <div class="upload-btn">
+                        <img src="/images/upload.png" alt="upload"/>
+                        <a href="javascript:;" class="uploadLink">Upload File</a>
+                    </div>
+                </div>
+                <div class="upload-table" id="uploadTable">
+                    <table id="fileListTable">
+                        <thead>
+                        <tr>
+                            <td class="td1">No.</td>
+                            <td class="td2">File</td>
+                            <td class="td3">Type of document</td>
+                            <td class="td4">File contains page(s)</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            #foreach($file in $fileList)
+                                #set($index=$velocityCount)
+                                <tr id="WU_FILE_0"><td>$index</td><td><p class="file-name"><span>$file.filename</span>
+                                    <a class="delete"> + 删除</a></p></td><td>
+                                    <div class="spinner-warp">
+                                        <div class="spinner"><p class="box">
+                                            #if($file.content)
+                                                    <span class="state">$file.content</span>
+                                                #else
+                                                    <span class="state">Please Choose</span>
+                                            #end
+                                            <a>下拉箭头</a></p>
+                                            <div class="spinner-box"><ul><li>Birth / Death Certificate</li><li>Marriage Certificate</li><li>Divorce Certificate</li><li>Educational Certificate</li><li>Transcript</li><li>License</li><li>Identification Card</li><li>Household Register</li><li>Passport</li><li>Medical Certificate</li><li>Property Paper/Real Estate Deed</li><li>Contract</li><li>Statement</li><li>Court Document</li><li>Agreement</li><li>Affidavits</li><li>Others</li></ul></div></div></div></td><td><div class="num-inp clearfix">
+                                    #if($file.page)
+                                            <a class="reduce">-</a><input type="text" value="$file.page">
+                                        #else
+                                            <a class="reduce">-</a><input type="text" value="1">
+                                    #end
+                                    <a class="plus">+</a></div></td>
+                                </tr>
+                            #end
+                        </tbody>
+                    </table>
+                    <p class="para-txt">English to/from Chinese: $30 per page <br/>
+                        English to/from Other Languages: $50 per page
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-inner">
+                    <h2>Order Summary</h2>
+                    <div class="div-box country clearfix">
+                        <p class="p-left">Country</p>
+                        <p class="p-right">$!sgOrderCe.country</p>
+                    </div>
+                    <div class="div-box lang clearfix">
+                        <p class="p-left">Language</p>
+                        <p class="p-right">
+                            <span>$!sgOrderCe.slan</span>
+                            <img src="/images/down.png" alt=""/>
+                            <span>$!sgOrderCe.tlan</span>
+                        </p>
+                    </div>
+                    <ul class="order-file-list" id="orderFileList">
+                        <!--<li class="clearfix"><p class="file-name">1.*****</p><p class="file-num">4Pages</p></li>-->
+                        <!--<li class="clearfix"><p class="file-name">2.*****</p><p class="file-num">4Pages</p></li>-->
+                        <!--<li class="clearfix"><p class="file-name">3.*****</p><p class="file-num">4Pages</p></li>-->
+                        <!--<li class="last clearfix"><p class="file-name">4.*****</p><p class="file-num">4Pages</p></li>-->
+
+                    </ul>
+                    <ul class="order-file-list1" id="orderFileList1">
+                        <!--<li class="clearfix"><p class="file-name">1.*****</p><p class="file-num">4Pages</p></li>-->
+                        <!--<li class="clearfix"><p class="file-name">2.*****</p><p class="file-num">4Pages</p></li>-->
+                        <!--<li class="clearfix"><p class="file-name">3.*****</p><p class="file-num">4Pages</p></li>-->
+                        <!--<li class="last clearfix"><p class="file-name">4.*****</p><p class="file-num">4Pages</p></li>-->
+                        #foreach($file in $fileList)
+                            #set($index=$velocityCount)
+##                            <li class="clearfix"><p class="file-name"><span>1</span>  $file.filename</p><p class="file-num">$!{file.page}Pages</p></li>
+                            <li class="clearfix"><p class="file-name"> <span>$index</span>、 $file.filename </p><div class="file-num"><div><p id="pageNum">$!file.page</p>Page(s)</div></div></li>
+                        #end
+                    </ul>
+                    <p class="total">Order total: <br/><span>$<span id="price">$!sgOrderCe.price</span></span></p>
+                    <a onclick="javascript:toServicePage()" class="next-btn">NEXT OPTION</a>
+                </div>
+            </div>
+        </div>
+        ##引入footer部分
+            #parse("/common/footer.vm")
+    </div>
+
+    <div class="mask-bg"></div>
+    <div class="mask-box mask-main" id="uploadFile" style="display: block;">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="upload-intro clearfix">
+            <div class="left">
+                <h3>Example:</h3>
+                <img src="/images/card.png" alt="card"/>
+            </div>
+            <div class="right">
+                <h3>Please read the follow instructions below. </h3>
+                <p>1、Please upload the soft copy, scanned copy or photo copy of the original documents. Soft coy and scanned copy are highly recommended.</p>
+                <p>2、Please make sure all information in the uploaded files is clear and recognizable..</p>
+                <p>3、If there is hand-written content in the file(s), it is highly recommended that you type out the hand-written information in the remarks column to avoid any discrepancies.</p>
+                <p>4、For original documents with sizes much smaller than A4 size, such as ID, passport and driving license, please consolidate all pages of the original documents into one page to avoid the system over-charging you.</p>
+            </div>
+        </div>
+        <!--<div class="btn-box">-->
+            <!--<input type="file"/>-->
+            <!--<a href="javascript:;" class="btn upload">UPLOAD FILE</a>-->
+        <!--</div>-->
+        <div id="uploader" class="wu-example">
+            <!--用来存放文件信息-->
+            <div id="thelist" class="uploader-list"></div>
+            <div class="btns">
+                <div id="picker" class="btn ">UPLOAD FILE</div>
+                <button id="ctlBtn" class="btn btn-none">START UPLOADING</button>
+            </div>
+        </div>
+    </div>
+
+    <!--隐藏域：存储orderid(非orderno))-->
+    <input type="hidden" id="orderid" value=$!orderid>
+</body>
+</html>

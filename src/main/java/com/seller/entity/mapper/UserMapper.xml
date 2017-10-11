@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seller.entity.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.seller.entity.model.User">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SELLER_NO" jdbcType="VARCHAR" property="sellerNo" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="QQ_NUM" jdbcType="VARCHAR" property="qqNum" />
+    <result column="WECHAT_NUM" jdbcType="VARCHAR" property="wechatNum" />
+    <result column="SELLER_SHOP_ID1" jdbcType="VARCHAR" property="sellerShopId1" />
+    <result column="SELLER_SHOP_ID2" jdbcType="VARCHAR" property="sellerShopId2" />
+    <result column="SELLER_SHOP_ID3" jdbcType="VARCHAR" property="sellerShopId3" />
+    <result column="USER_TYPE" jdbcType="CHAR" property="userType" />
+    <result column="VIP_FLAG" jdbcType="CHAR" property="vipFlag" />
+    <result column="VIP_GRADE" jdbcType="CHAR" property="vipGrade" />
+    <result column="LAST_LOGIN_IP" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="LAST_LOGIN_DATE" jdbcType="TIMESTAMP" property="lastLoginDate" />
+    <result column="REGISTER_FLAG" jdbcType="CHAR" property="registerFlag" />
+    <result column="CREATE_BY" jdbcType="INTEGER" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY" jdbcType="INTEGER" property="updateBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="DEL_FLAG" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SELLER_NO, PASSWORD, REAL_NAME, PHONE, QQ_NUM, WECHAT_NUM, SELLER_SHOP_ID1, SELLER_SHOP_ID2, 
+    SELLER_SHOP_ID3, USER_TYPE, VIP_FLAG, VIP_GRADE, LAST_LOGIN_IP, LAST_LOGIN_DATE, 
+    REGISTER_FLAG, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME, REMARKS, DEL_FLAG
+  </sql>
+  <select id="selectByExample" parameterType="com.seller.entity.model.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from USER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.seller.entity.model.UserExample">
+    delete from USER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertSelective" parameterType="com.seller.entity.model.User">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sellerNo != null">
+        SELLER_NO,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="realName != null">
+        REAL_NAME,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="qqNum != null">
+        QQ_NUM,
+      </if>
+      <if test="wechatNum != null">
+        WECHAT_NUM,
+      </if>
+      <if test="sellerShopId1 != null">
+        SELLER_SHOP_ID1,
+      </if>
+      <if test="sellerShopId2 != null">
+        SELLER_SHOP_ID2,
+      </if>
+      <if test="sellerShopId3 != null">
+        SELLER_SHOP_ID3,
+      </if>
+      <if test="userType != null">
+        USER_TYPE,
+      </if>
+      <if test="vipFlag != null">
+        VIP_FLAG,
+      </if>
+      <if test="vipGrade != null">
+        VIP_GRADE,
+      </if>
+      <if test="lastLoginIp != null">
+        LAST_LOGIN_IP,
+      </if>
+      <if test="lastLoginDate != null">
+        LAST_LOGIN_DATE,
+      </if>
+      <if test="registerFlag != null">
+        REGISTER_FLAG,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sellerNo != null">
+        #{sellerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qqNum != null">
+        #{qqNum,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatNum != null">
+        #{wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerShopId1 != null">
+        #{sellerShopId1,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerShopId2 != null">
+        #{sellerShopId2,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerShopId3 != null">
+        #{sellerShopId3,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="vipFlag != null">
+        #{vipFlag,jdbcType=CHAR},
+      </if>
+      <if test="vipGrade != null">
+        #{vipGrade,jdbcType=CHAR},
+      </if>
+      <if test="lastLoginIp != null">
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginDate != null">
+        #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerFlag != null">
+        #{registerFlag,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.seller.entity.model.UserExample" resultType="java.lang.Long">
+    select count(*) from USER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update USER
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellerNo != null">
+        SELLER_NO = #{record.sellerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realName != null">
+        REAL_NAME = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qqNum != null">
+        QQ_NUM = #{record.qqNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechatNum != null">
+        WECHAT_NUM = #{record.wechatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellerShopId1 != null">
+        SELLER_SHOP_ID1 = #{record.sellerShopId1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellerShopId2 != null">
+        SELLER_SHOP_ID2 = #{record.sellerShopId2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellerShopId3 != null">
+        SELLER_SHOP_ID3 = #{record.sellerShopId3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userType != null">
+        USER_TYPE = #{record.userType,jdbcType=CHAR},
+      </if>
+      <if test="record.vipFlag != null">
+        VIP_FLAG = #{record.vipFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.vipGrade != null">
+        VIP_GRADE = #{record.vipGrade,jdbcType=CHAR},
+      </if>
+      <if test="record.lastLoginIp != null">
+        LAST_LOGIN_IP = #{record.lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastLoginDate != null">
+        LAST_LOGIN_DATE = #{record.lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.registerFlag != null">
+        REGISTER_FLAG = #{record.registerFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.createBy != null">
+        CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null">
+        UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null">
+        REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update USER
+    set ID = #{record.id,jdbcType=INTEGER},
+      SELLER_NO = #{record.sellerNo,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      REAL_NAME = #{record.realName,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      QQ_NUM = #{record.qqNum,jdbcType=VARCHAR},
+      WECHAT_NUM = #{record.wechatNum,jdbcType=VARCHAR},
+      SELLER_SHOP_ID1 = #{record.sellerShopId1,jdbcType=VARCHAR},
+      SELLER_SHOP_ID2 = #{record.sellerShopId2,jdbcType=VARCHAR},
+      SELLER_SHOP_ID3 = #{record.sellerShopId3,jdbcType=VARCHAR},
+      USER_TYPE = #{record.userType,jdbcType=CHAR},
+      VIP_FLAG = #{record.vipFlag,jdbcType=CHAR},
+      VIP_GRADE = #{record.vipGrade,jdbcType=CHAR},
+      LAST_LOGIN_IP = #{record.lastLoginIp,jdbcType=VARCHAR},
+      LAST_LOGIN_DATE = #{record.lastLoginDate,jdbcType=TIMESTAMP},
+      REGISTER_FLAG = #{record.registerFlag,jdbcType=CHAR},
+      CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      DEL_FLAG = #{record.delFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

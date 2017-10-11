@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seller.entity.dao.TaskMapper">
+  <resultMap id="BaseResultMap" type="com.seller.entity.model.Task">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TASK_GROUP_ID" jdbcType="INTEGER" property="taskGroupId" />
+    <result column="PUBLISH_TIME_ID" jdbcType="INTEGER" property="publishTimeId" />
+    <result column="PUBLISH_AMOUNT" jdbcType="INTEGER" property="publishAmount" />
+    <result column="BUYER_ID" jdbcType="INTEGER" property="buyerId" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="TAOBAO_ORDER_NO" jdbcType="VARCHAR" property="taobaoOrderNo" />
+    <result column="ACCEPT_ORDER_TIME" jdbcType="TIMESTAMP" property="acceptOrderTime" />
+    <result column="CREATE_BY" jdbcType="INTEGER" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY" jdbcType="INTEGER" property="updateBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="DEL_FLAG" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TASK_GROUP_ID, PUBLISH_TIME_ID, PUBLISH_AMOUNT, BUYER_ID, STATUS, TAOBAO_ORDER_NO, 
+    ACCEPT_ORDER_TIME, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME, REMARKS, DEL_FLAG
+  </sql>
+  <select id="selectByExample" parameterType="com.seller.entity.model.TaskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.seller.entity.model.TaskExample">
+    delete from TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertSelective" parameterType="com.seller.entity.model.Task">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskGroupId != null">
+        TASK_GROUP_ID,
+      </if>
+      <if test="publishTimeId != null">
+        PUBLISH_TIME_ID,
+      </if>
+      <if test="publishAmount != null">
+        PUBLISH_AMOUNT,
+      </if>
+      <if test="buyerId != null">
+        BUYER_ID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="taobaoOrderNo != null">
+        TAOBAO_ORDER_NO,
+      </if>
+      <if test="acceptOrderTime != null">
+        ACCEPT_ORDER_TIME,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskGroupId != null">
+        #{taskGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="publishTimeId != null">
+        #{publishTimeId,jdbcType=INTEGER},
+      </if>
+      <if test="publishAmount != null">
+        #{publishAmount,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null">
+        #{buyerId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="taobaoOrderNo != null">
+        #{taobaoOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrderTime != null">
+        #{acceptOrderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.seller.entity.model.TaskExample" resultType="java.lang.Long">
+    select count(*) from TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update TASK
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskGroupId != null">
+        TASK_GROUP_ID = #{record.taskGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.publishTimeId != null">
+        PUBLISH_TIME_ID = #{record.publishTimeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.publishAmount != null">
+        PUBLISH_AMOUNT = #{record.publishAmount,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyerId != null">
+        BUYER_ID = #{record.buyerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.taobaoOrderNo != null">
+        TAOBAO_ORDER_NO = #{record.taobaoOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptOrderTime != null">
+        ACCEPT_ORDER_TIME = #{record.acceptOrderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createBy != null">
+        CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null">
+        UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null">
+        REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update TASK
+    set ID = #{record.id,jdbcType=INTEGER},
+      TASK_GROUP_ID = #{record.taskGroupId,jdbcType=INTEGER},
+      PUBLISH_TIME_ID = #{record.publishTimeId,jdbcType=INTEGER},
+      PUBLISH_AMOUNT = #{record.publishAmount,jdbcType=INTEGER},
+      BUYER_ID = #{record.buyerId,jdbcType=INTEGER},
+      STATUS = #{record.status,jdbcType=CHAR},
+      TAOBAO_ORDER_NO = #{record.taobaoOrderNo,jdbcType=VARCHAR},
+      ACCEPT_ORDER_TIME = #{record.acceptOrderTime,jdbcType=TIMESTAMP},
+      CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      DEL_FLAG = #{record.delFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

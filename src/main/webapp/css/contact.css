@@ -1,0 +1,43 @@
+.contact-list{margin:5% auto;}
+.contact-list li{width: 40%;margin:1em 5%;float:left;position: relative;min-height: 17.5em;}
+.contact-list li.li-left .img{position: absolute;right: 0;top:0;width: 17.5em;}
+.contact-list li.li-right .img{position: absolute;left: 0;top:0;width: 17.5em;}
+.contact-list li.li-left .contact-info{padding-right: 19em;text-align: right;}
+.contact-list li.li-right .contact-info{padding-left: 19em;}
+.contact-info h3{font-size: 1.125em;padding:1.5em 0 1em;}
+.contact-info  p{font-size: 0.875em;}
+.contact-list .con-line{width:70%;height:1px;border-bottom:2px solid #dcdcdc;margin:30px auto;}
+.contact-list .con-line em{display: block;width:60px;border-top:3px solid #e03e25;margin:0 auto;}
+
+
+
+@media(max-width: 1400px){
+    .contact-list li{width: 44%;margin:1em 3%;min-height: 16em;}
+    .contact-list li.li-left .img{width: 16em;}
+    .contact-list li.li-right .img{width: 16em;}
+    .contact-list li.li-left .contact-info{padding-right: 17.5em;}
+    .contact-list li.li-right .contact-info{padding-left: 17.5em;}
+    .contact-info h3{padding:0 0 1em 0;}
+}
+@media(max-width: 1200px){
+    .contact-list li{width: 48%;margin:1em 1%;min-height: 16em;}
+    .contact-list li.li-left .img{width: 14em;}
+    .contact-list li.li-right .img{width: 14em;}
+    .contact-list li.li-left .contact-info{padding-right: 14.5em;}
+    .contact-list li.li-right .contact-info{padding-left: 14.5em;}
+}
+@media(max-width: 1024px){
+    .contact-list li{width:90%;margin:0 auto;float: none;min-height: 14em;}
+    .contact-list li.li-left .img{left: 0;top: 0;right: auto;}
+    .contact-list li.li-left .contact-info{padding:0 0 0 14.5em;text-align: left;}
+    .contact-list li.li-left .contact-info,.contact-list li.li-right .contact-info{padding:0 0 0 16em;}
+    .contact-info h3{font-size: 1.125em;padding:1em 0;}
+}
+@media(max-width: 768px){
+    .contact-list li{width:98%;min-height: auto;margin:0 auto 5%;}
+    .contact-list li.li-left .img,.contact-list li.li-right .img{display: none;}
+    .contact-list li.li-left .contact-info,.contact-list li.li-right .contact-info{padding:0;}
+    .contact-info h3{padding:0.5em 0;border-bottom: 1px solid #dcdcdc;margin-bottom: 1em;}
+    .contact-list h2{font-size: 1.5em;}
+    
+}

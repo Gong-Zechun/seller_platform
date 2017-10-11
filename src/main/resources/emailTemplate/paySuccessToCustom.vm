@@ -1,0 +1,31 @@
+<table class="mytable" style="width:650px; height:940px; margin:0 auto; display: block;">
+    <thead style="display: block;">
+    <tr style="display: block;">
+        <td style="width:100%; height:124px; background:#000; display: block;">
+            <img src="$!imageSrc" alt="transn-logo" style="margin-top:34px; margin-left:42px;"/>
+    </tr>
+    </thead>
+    <tbody style="padding:45px; display: block;">
+        <tr class="mytbodybox" style="padding:59px; background:#eee; display: block;">
+            <td style="margin-top:25px; display: block;">Dear $!email :</td>
+            <td style="margin-top:25px; display: block;">You sent a payment of ＄$!mdOrder.price USD to Transn and your Your service purchase was successful.</td>
+            <td style="margin-top:25px; display: block;">ORDER REFERENCE: $!mdOrder.orderNo</td>
+            <td style="margin-top:25px; display: block;">ORDER DETAILS:</td>
+
+            <td style="margin-top:25px; display: block;">Total Cost USD: $!mdOrder.price</td>
+            <td style="margin-top:25px; display: block;">Total amount debited to your credit/debit card:	$!mdOrder.price</td>
+            <td style="margin-top:25px; display: block;">You can also login the website with your user name:$!email to track the status of your order.</td>
+            <td style="margin-top:25px; display: block;">If you have any problem, please contact with our online service or global-support@transn.com</td>
+            <td style="margin-top:25px; display: block;">Best regards,</td>
+            <td style="margin-top:25px; display: block;">Transn support team</td>
+            <td style="margin-top:25px; display: block;">This is a system auto-generated email. Please do not reply.</td>
+        </tr>
+    </tbody>
+    <tfoot style="width:100%; padding:43px 0 27px 0; background:#000; color: #fff; text-align: center; display: block;">
+    <tr style="display: block;">
+        <td style="display: block;"><a href="mailto:global-support@transn.com">global-support@transn.com</a></td>
+        <td class="mynews" style="font-size: 14px; display: block;">Copyright © 2006-2016 TransnCo., Ltd, All Rights Reserved</td>
+        <td style="display: block;"><a>www.transn.com</a></td>
+    </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="context1" targetRuntime="MyBatis3">
+		<!-- 自动实现接口Model 实现分页及序列化和 Example序列化 -->
+		<plugin type="com.util.mybatis.SuperClassAndInterfacePlugin" />
+		<!-- Model中生成equals()及hashCode()方法-->
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" /> 
+		<!-- Model中添加toString()方法-->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" /> 
+		<!-- 添加like查询大小写不敏感方法-->
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" /> 
+
+		<!-- 添加域注释 -->
+        <commentGenerator type="com.util.mybatis.MyCommentGenerator">
+		    <property name="javaFileEncoding" value="UTF-8"/>
+		    <!-- 是否去除自动生成的注释 true：是 ： false:否 --> 
+		    <property name="suppressAllComments" value="false" />
+		    <property name="suppressDate" value="true" />
+		</commentGenerator> 
+		
+		<!--
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/demodb" userId="root"
+			password="password" />
+		-->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://59.151.103.73:3306/test?characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=UTC"
+			userId="root" password="ts123456" />
+
+		<javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成文件目录 -->
+		<javaModelGenerator targetPackage="com.seller.entity.model" targetProject="./src/main/java" />
+		<sqlMapGenerator targetPackage="com.seller.entity.mapper" targetProject="./src/main/java" />
+		<javaClientGenerator targetPackage="com.seller.entity.dao" targetProject="./src/main/java" type="MIXEDMAPPER" />
+
+		<!-- 生成表对象 -->
+		<!--<table tableName="RECHARGE_RECORD"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+		<!--<table tableName="SYS_DICT"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+		<!--<table tableName="TASK"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+		<table tableName="TASK_GROUP"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>
+		<!--<table tableName="TASK_GROUP_TEMPLATE"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+		<!--<table tableName="USER"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+		<!--<table tableName="WALLET"><generatedKey column="ID" sqlStatement="MySql" identity="true"/></table>-->
+	</context>
+</generatorConfiguration>

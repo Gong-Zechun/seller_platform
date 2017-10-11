@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>EDM</title>
+		<style>
+			*{
+				padding:0;
+				margin:0;
+			}
+		</style>
+		#set($gender = "Male")
+		#if($busPartner.gender == "1")
+			#set($gender = "Female")
+		#else
+			#set($gender = "Male")
+		#end
+		#set($education = "")
+		#foreach($educationLevel in $educationLevels)
+			#if($educationLevel.value == $!busPartner.education)
+				#set($education = $!educationLevel.label)
+			#end
+		#end
+		
+		#set($certificateType = "")
+		#foreach($certificateType in $certificateTypes)
+			#if($certificateType.value == $!busPartner.certificateType)
+				#set($certificateType = $!certificateType.label)
+			#end
+        #end
+	</head>
+	<body>
+		<table style="width:600px;margin:0 auto;text-align: left;">
+			<thead>
+				<tr>
+					<td style="width:35%;height:2px;border-bottom:2px solid #999;"></td>
+					<td style="text-align: center;display: block;height:20px;line-height:30px;">Personal information</td>
+					<td style="width:35%;height:2px;border-bottom:2px solid #999;"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="padding:1em 0em;"><span>Name</span>:<span>$!busPartner.name</span></td>
+					<td></td>	
+					<td style="padding:1em 0em;"><span>Date of birth</span>:<span>$!busPartner.birthday</span></td>
+				</tr>
+				<tr>
+					<td style="padding:1em 0em;"><span>Gender</span>:<span>$!gender</span></td>
+					<td></td>	
+					<td style="padding:1em 0em;"><span>Type of certificate</span>:<span>$!certificateType</span></td>
+				</tr>
+				<tr>
+					<td style="padding:1em 0em;"><span>Education</span>:<span>$!education</span></td>
+					<td></td>	
+					<td style="padding:1em 0em;"><span>Valid Certificate Number</span>:<span>$!busPartner.certificateNumber</span></td>
+				</tr>
+				<tr>
+					<td style="padding:1em 0em;"><span>Occupation</span>:<span>$!busPartner.occupation</span></td>
+					<td></td>	
+					<td style="padding:1em 0em;"><span>Language Skill</span>:<span>$!busPartner.languageSkill</span></td>
+				</tr>
+				
+				<tr>
+					<td style="width:35%;height:2px;border-bottom:2px solid #999;"></td>
+					<td style="text-align: center;display: block;height:20px;line-height:30px;">Company information</td>
+					<td style="width:35%;height:2px;border-bottom:2px solid #999;"></td>
+				</tr>
+				
+				<tr>
+					<td style="padding:1em 0em;"><span>Company</span>:<span>$!busPartner.companyName</span></td>
+					<td></td>	
+					<td style="padding:1em 0em;"><span>Tel</span>:<span>$!busPartner.tel</span></td>
+				</tr>
+				<tr>
+					<td style="padding:1em 0em;"><span>Email</span>:<span>$!busPartner.email</span></td>
+					<td></td>	
+					<td style="padding:1em 0em;"><span>Bank Account Name</span>:<span>$!busPartner.bankAccountName</span></td>
+				</tr>
+				<tr>
+					<td style="padding:1em 0em;"><span>Bank Account Number</span>:<span>$!busPartner.bankAccountNumber</span></td>
+					<td></td>
+					<td style="padding:1em 0em;"><span>Address</span>:<span>$!busPartner.address</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

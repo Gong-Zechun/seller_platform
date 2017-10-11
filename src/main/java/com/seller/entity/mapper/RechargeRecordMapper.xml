@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seller.entity.dao.RechargeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.seller.entity.model.RechargeRecord">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="RECEIPT_ACCOUNT_NAME" jdbcType="VARCHAR" property="receiptAccountName" />
+    <result column="TRANSFER_PERSON_PHONE" jdbcType="VARCHAR" property="transferPersonPhone" />
+    <result column="TRANSFER_AMOUNT" jdbcType="DECIMAL" property="transferAmount" />
+    <result column="TRANSFER_IMG_URL" jdbcType="VARCHAR" property="transferImgUrl" />
+    <result column="FINISH_FLAG" jdbcType="CHAR" property="finishFlag" />
+    <result column="CREATE_BY" jdbcType="INTEGER" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY" jdbcType="INTEGER" property="updateBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="DEL_FLAG" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, RECEIPT_ACCOUNT_NAME, TRANSFER_PERSON_PHONE, TRANSFER_AMOUNT, TRANSFER_IMG_URL, 
+    FINISH_FLAG, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME, REMARKS, DEL_FLAG
+  </sql>
+  <select id="selectByExample" parameterType="com.seller.entity.model.RechargeRecordExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from RECHARGE_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.seller.entity.model.RechargeRecordExample">
+    delete from RECHARGE_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertSelective" parameterType="com.seller.entity.model.RechargeRecord">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into RECHARGE_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="receiptAccountName != null">
+        RECEIPT_ACCOUNT_NAME,
+      </if>
+      <if test="transferPersonPhone != null">
+        TRANSFER_PERSON_PHONE,
+      </if>
+      <if test="transferAmount != null">
+        TRANSFER_AMOUNT,
+      </if>
+      <if test="transferImgUrl != null">
+        TRANSFER_IMG_URL,
+      </if>
+      <if test="finishFlag != null">
+        FINISH_FLAG,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="receiptAccountName != null">
+        #{receiptAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="transferPersonPhone != null">
+        #{transferPersonPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="transferAmount != null">
+        #{transferAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferImgUrl != null">
+        #{transferImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="finishFlag != null">
+        #{finishFlag,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.seller.entity.model.RechargeRecordExample" resultType="java.lang.Long">
+    select count(*) from RECHARGE_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update RECHARGE_RECORD
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiptAccountName != null">
+        RECEIPT_ACCOUNT_NAME = #{record.receiptAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transferPersonPhone != null">
+        TRANSFER_PERSON_PHONE = #{record.transferPersonPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transferAmount != null">
+        TRANSFER_AMOUNT = #{record.transferAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.transferImgUrl != null">
+        TRANSFER_IMG_URL = #{record.transferImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishFlag != null">
+        FINISH_FLAG = #{record.finishFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.createBy != null">
+        CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null">
+        UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null">
+        REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update RECHARGE_RECORD
+    set ID = #{record.id,jdbcType=INTEGER},
+      RECEIPT_ACCOUNT_NAME = #{record.receiptAccountName,jdbcType=VARCHAR},
+      TRANSFER_PERSON_PHONE = #{record.transferPersonPhone,jdbcType=VARCHAR},
+      TRANSFER_AMOUNT = #{record.transferAmount,jdbcType=DECIMAL},
+      TRANSFER_IMG_URL = #{record.transferImgUrl,jdbcType=VARCHAR},
+      FINISH_FLAG = #{record.finishFlag,jdbcType=CHAR},
+      CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      DEL_FLAG = #{record.delFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

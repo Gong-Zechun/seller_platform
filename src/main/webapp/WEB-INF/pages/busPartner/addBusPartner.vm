@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agent Application - Working Together With Transn IOL Technology Co.,Ltd</title>
+    <meta name="keywords" content="Agent Application, Business Partner, agency cooperation" />
+    <meta name="description" content="Thank you for your interest in the agency cooperation with Transn IOL Technology Co.,Ltd. Please complete all questions in this form." />
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    #parse("/common/include.vm")
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+    <script type="text/javascript" src="/scripts/pages/busPartner/addBusPartner.js"></script>
+	<link rel="stylesheet" href="/css/businessPartners.css"/>
+	<script type="text/javascript">
+		var isUploadingPhoto = $!isUploadingPhoto;
+	</script>
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+		<!--head end-->
+        <div class="nav-box"></div>
+		 <!--banner-->
+        <div class="myOrderbanner2">
+        	<img src="../images/myorder/images/Business.jpg"/>
+        	<h3 class="myMiddleText">WORKING TOGETHER FOR A BRIGHTER TOMORROW</h3>
+        </div>
+        
+        <!--next-banner-->
+        <div class="banner_next container clearfix">
+	        	<div class="banner_next_left pull-left">
+	        		<h3>Agent Application</h3>
+	        		<div class="line">
+	        			<em></em>
+	        		</div>
+	        		<p>
+	        			Thank you for your interest in the agency cooperation with Transn IOL Technology Co.,Ltd. Please complete all questions in this form. These questions have been designed to facilitate the review process of a potential relationship between Transn and your company.
+	        		</p>
+	        	</div>
+	        	<div class="banner_next_right pull-left">
+	        		<img src="../images/product/images/bg1.png" / class="pull-right">
+	        	</div>
+	    </div>
+        
+        <!--part3-form-->
+        <div class="part3-form container">
+        	<form action="uploadPhoto" name="busPartnerForm" id="busPartnerForm" enctype="multipart/form-data" method="post" class="myform">
+        		<input type="hidden" name="id" value="$!busPartner.id"/>
+				<div class="mynewline clearfix">
+	        		<div class="mynewline-left"></div>
+	        		<div class="mynewline-middle"><h3>Persional information</h3></div>
+	        		<div class="mynewline-right"></div>
+        		</div>
+        		
+        		<div class="part3-main container">
+        			<ul class="clearfix">
+        				<li>
+        					<span>Name：</span>
+							<input type="text" placeholder="Name" name="name" id="name" value="$!busPartner.name"/>
+        				</li>
+        				<li>
+        					<span>Date of birth：</span>
+							<input type="text" placeholder="Date of birth" readonly name="birthday" id="birthday" value="$!busPartner.birthday"/>
+        				</li>
+        				<li>
+        					<span>Gender：</span>
+        					<select name="gender" id="gender">
+								<option value="" disabled selected>Please select gender</option>
+								#if("0" == $!busPartner.gender)
+									<option value ="0" selected>Male</option>
+									<option value ="1">Female</option>
+								#elseif("1" == $!busPartner.gender)
+									<option value ="0">Male</option>
+									<option value ="1" selected>Female</option>
+								#else
+									<option value ="0">Male</option>
+									<option value ="1">Female</option>
+								#end
+        					</select>
+        				</li>
+        				<li>
+        					<span>Type of certificate：</span>
+        					<select name="certificateType" id="certificateType">
+								<option value="" disabled selected>Please select the type of certificate</option>
+								#foreach($certificateType in $certificateTypes)
+									#if($certificateType.value == $!busPartner.certificateType)
+										<option value="$certificateType.value" selected>$certificateType.label</option>
+									#else
+										<option value="$certificateType.value">$certificateType.label</option>
+									#end
+                                #end
+        					</select>
+        				</li>
+        				<li>
+        					<span>Education：</span>
+							<select name="education" id="education">
+								<option value="" disabled selected>Please select the education</option>
+								#foreach($educationLevel in $educationLevels)
+									#if($educationLevel.value == $!busPartner.education)
+										<option value="$educationLevel.value" selected>$educationLevel.label</option>
+									#else
+										<option value="$educationLevel.value">$educationLevel.label</option>
+									#end
+                                #end
+        					</select>
+        				</li>
+        				<li>
+        					<span>Valid Certificate Number：</span>
+							<input type="text" placeholder="Valid Certificate Number" name="certificateNumber" id="certificateNumber" value="$!busPartner.certificateNumber"/>
+        				</li>
+        				
+        				<li>
+        					<span>Occupation：</span><input type="text" placeholder="Occupation" name="occupation" id="occupation" value="$!busPartner.occupation"/>
+        				</li>
+        				<li>
+        					<span>Language Skill：</span><input type="text" placeholder="Language Skill" name="languageSkill" id="languageSkill" value="$!busPartner.languageSkill"/>
+        				</li>
+        			</ul>       			
+        		</div>
+        		<div class="mynewline clearfix">
+		        		<div class="mynewline-left"></div>
+		        		<div class="mynewline-middle"><h3>Company information</h3></div>
+		        		<div class="mynewline-right"></div>
+        		</div>
+        		
+        		<div class="part3-main container">
+        			<ul class="clearfix">
+        				<li>
+        					<span>Company：</span><input type="text" placeholder="Company" name="companyName" id="companyName" value="$!busPartner.companyName"/>
+        				</li>
+        				<li>
+        					<span>Tel：</span><input type="text" placeholder="Tel" name="tel" id="tel" value="$!busPartner.tel"/>
+        				</li>
+        				<li>
+        					<span>Email：</span><input type="text" placeholder="Email" name="email" id="email" value="$!busPartner.email"/>
+        				</li>
+        				
+        				
+        				<li>
+        					<span>Bank Account Name：</span><input type="text" placeholder="Bank Account Name" name="bankAccountName" id="bankAccountName" value="$!busPartner.bankAccountName"/>
+        				</li>
+        				<li>
+        					<span>Bank Account Number：</span><input type="text" placeholder="Bank Account Number" name="bankAccountNumber" id="bankAccountNumber" value="$!busPartner.bankAccountNumber"/>
+        				</li>
+        				<li>
+        					<span>Address：</span><input type="text" placeholder="Address" name="address" id="address" value="$!busPartner.address"/>
+        				</li>
+        			</ul>       			
+        		</div>
+        		
+        		<div class="mynewline clearfix">
+		        		<div class="mynewline-left"></div>
+		        		<div class="mynewline-middle"><h3>Upload files</h3></div>
+		        		<div class="mynewline-right"></div>
+        		</div>
+        		<div class="imgBox container">
+        			<ul class="clearfix">
+        				<!--三种状态-->
+        				<li>
+        					<div>
+								<input type="file" name="agentPhoto" id="agentPhoto" onchange="uploadPhoto()" valueAttr="$!busPartner.agentPhoto" style="display:none" accept="image/png,image/jpg,image/jpeg,image/gif,image/bmp"/>
+								#if ($busPartner.agentPhoto)
+									<img src="$busPartner.agentPhoto" />
+            						<i>
+            							<span>
+            								<p onclick="selectAgentPhoto()">ReUpload</p>
+            							</span>
+            						</i>
+								#end
+								#if (!$busPartner.agentPhoto)
+									<em>
+										<span onclick="selectAgentPhoto()">Upload</span>
+									</em>
+								#end
+        					</div>
+        					<p class="myduan">
+								<span>
+									Photo of agent(Persional)
+								</span>       						
+        					</p>
+        				</li>
+        				
+        				<li>
+        					<div>
+								<input type="file" name="certificatePhoto" id="certificatePhoto" onchange="uploadPhoto()" valueAttr="$!busPartner.certificatePhoto" style="display:none" accept="image/png,image/jpg,image/jpeg,image/gif,image/bmp"/>
+								#if ($busPartner.certificatePhoto)
+									<img src="$!busPartner.certificatePhoto" />
+            						<i>
+            							<span>
+            								<p onclick="selectCertPhoto()">ReUpload</p>
+            							</span>
+            						</i>
+								#end
+								#if (!$busPartner.certificatePhoto)
+									<em>
+										<span onclick="selectCertPhoto()">Upload</span>
+									</em>
+								#end
+        					</div>
+        					<p class="myduan">
+        						<span>Photo copy of valid certificate</span>
+        					</p>
+        				</li>
+        				
+        				<li>
+        					<div>
+								<input type="file" name="enterpriseQualifyPhoto" id="enterpriseQualifyPhoto" onchange="uploadPhoto()" valueAttr="$!busPartner.enterpriseQualifyPhoto" style="display:none" accept="image/png,image/jpg,image/jpeg,image/gif,image/bmp"/>
+								#if ($busPartner.enterpriseQualifyPhoto)
+									<img src="$busPartner.enterpriseQualifyPhoto" />
+            						<i>
+            							<span>
+            								<p onclick="selectEnterCe()">ReUpload</p>
+            							</span>
+            						</i>
+								#end
+								#if (!$busPartner.enterpriseQualifyPhoto)
+									<em>
+										<span onclick="selectEnterCe()">Upload</span>
+									</em>
+								#end
+        					</div>
+        					<p class="myduan">
+        						<span>Photo copy of enterprise qualification certificate(If avaiable)</span>
+        					</p>
+        				</li>
+        			</ul>
+        		</div>
+        		
+        		<p class="slt-warp-new-right slt-warp1-new-right slt-warp">
+					<span class="chk-warp-new-right ">
+						<input type="checkbox" id="chkEmail"/><span class="chk-new-right chk">多选框样式</span>
+					</span>
+					<label for="chkEmail" >
+						I hereby certify that all the situation mentioned above correspond to reality, if there exists anything against the actual situation, I shall bear the economic liability.
+					</label>					
+				</p>
+				<div class="formBtn">
+					<img src="../images/myorder/images/mybtnicon.png"/>
+					<input type="button" id="submitBusPartnerButton" onclick="submitForm()" value="Submit">
+				</div>
+			</form>
+        </div>
+        
+	    ##引入footer
+        #parse("/common/footer.vm")
+    </div>
+</body>
+</html>

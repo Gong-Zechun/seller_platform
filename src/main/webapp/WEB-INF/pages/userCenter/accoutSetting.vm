@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>service</title>
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    #parse("/common/include.vm")
+    <link rel="stylesheet" href="/css/order.css"/>
+	<script type="text/javascript" src="/scripts/pages/userCenter/accoutSetting.js"></script>
+</head>
+<body>
+<div class="warp">
+##引入header部分
+    #parse("/common/header.vm")
+
+    <div class="set-warp" id="setting">
+        <div class="center">
+            <h2>Update your details</h2>
+            <div class="setting-warp red-border-b clearfix">
+                <p class="set-title">Personal settings</p>
+                <div class="set-info">
+                    <div class="row-info">
+                        <p class="clearfix"><span class="span-left">Email address：</span><span class="span-right">$sysUser.loginName</span></p>
+                    </div>
+                    <div class="row-info">
+                        <p class="clearfix"><span class="span-left">Password：</span><span class="span-right">********</span></p>
+                        <a class="edit edit0" data-num="0" data-j="0">Edit</a>
+                    </div>
+
+                    <div class="row-info edit-box edit-psw">
+##                        <p class="clearfix">
+##                            <span class="span-left">Current password：</span>
+##                            <span class="span-right"><input type="password" class="inp cur-psw"/></span>
+##                            <span class="error"></span>
+##                        </p>
+                        <p class="clearfix">
+                            <span class="span-left">New password：</span>
+                            <span class="span-right"><input type="password" class="inp new-psw1"/></span>
+                            <span class="error"></span>
+                        </p>
+                        <p class="clearfix">
+                            <span class="span-left">Confirm new password：</span>
+                            <span class="span-right"><input type="password" class="inp new-psw2"/></span>
+                            <span class="error"></span>
+                        </p>
+                        <a class="save">SAVE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+##引入footer部分
+    #parse("/common/footer.vm")
+</div>
+
+<div class="mask-bg"></div>
+<div class="mask-box pay-box" id="loginAgain">
+    <a class="close">关闭</a>
+    <img src="/images/suc.png" alt="success"/>
+    <p class="para-login">Your password has been changed successfully.<br/>Please use your updated password to login.</p>
+    <a href="/index" class="btn">Login again</a>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+</body>
+</html>

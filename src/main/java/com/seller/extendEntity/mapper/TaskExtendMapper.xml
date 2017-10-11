@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seller.extendEntity.dao.TaskExtendMapper">
+	<!--  获取banner详情 -->
+	<select id="getUnProcessTask" parameterType="com.seller.extendEntity.vo.TaskVo" resultType="com.seller.extendEntity.vo.TaskVo">
+		SELECT
+		t.id,
+		t.TASK_GROUP_ID,
+		tg.TASK_TYPE,
+		t.`STATUS`,
+		tg.SELLER_SHOP_ID,
+		t.TAOBAO_ORDER_NO,
+		t.ACCEPT_ORDER_TIME
+		FROM
+		TASK t
+		LEFT JOIN TASK_GROUP tg ON t.TASK_GROUP_ID = tg.id
+		WHERE
+		t.ID = #{id}
+		AND tg.ID = #{taskGroupId}
+		AND tg.TASK_TYPE = #{taskType}
+		AND t.`STATUS` = #{status}
+		AND t.TAOBAO_ORDER_NO = #{taobaoOrderNo}
+		AND t.ACCEPT_ORDER_TIME <![CDATA[>=]]> #{acceptOrderTimeStart}
+		AND t.ACCEPT_ORDER_TIME <![CDATA[<=]]> #{acceptOrderTimeEnd}
+		AND t.DEL_FLAG = 0
+		AND tg.DEL_FLAG = 0;
+	</select>
+</mapper>

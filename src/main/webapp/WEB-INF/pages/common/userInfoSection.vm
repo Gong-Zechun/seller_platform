@@ -1,0 +1,13 @@
+<div class="right" id="userAcc" style="display: block">
+    <!--用户信息div-->
+    <div class="user">
+        <p><span>$email</span><a class="arrow">下拉</a></p>
+        <ul class="sub-menu">
+            <li><a href="/userCenter/accoutSetting">Account Settings</a></li>
+            <li><a href="/order/myOrders">Order Management</a></li>
+            #*
+			<li><a>Notice</a></li>*#
+            <li><a onclick="javascript:signOut()">Sign Out</a></li>
+        </ul>
+    </div>
+</div>

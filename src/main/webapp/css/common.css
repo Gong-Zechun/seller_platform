@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+/***
+ * Transn Common Style
+ **/
+* {
+	font-family: helvetica, tahoma, verdana, sans-serif;
+	font-size: 12px;
+}
+
+body {
+	/** 解决IE6对hover支持的问题 **/
+	_behavior: url(csshover3.htc);
+	font-family: helvetica, tahoma, verdana, sans-serif;
+	padding: 0px;
+	font-size: 12px;
+	margin: 0 auto; /**body居中**/
+}
+
+/**工具栏**/
+.toolbar {
+	padding: 5px;
+	height: auto;
+	display: none;
+}
+
+.toolButton {
+	margin-bottom: 5px;
+}
+
+/*****弹出窗********/
+.modaldgS {
+	width: 450px;
+	height: 630px;
+	padding: 10px;
+}
+
+.modaldg {
+	width: 600px;
+	height: 630px;
+	padding: 10px;
+}
+
+.modaldgL {
+	width: 700px;
+	height: 630px;
+	padding: 10px;
+}
+
+.modaldgXL {
+	width: 800px;
+	height: 630px;
+	padding: 10px;
+}
+
+.buttonArea {
+	text-align: center;
+	padding: 10px 0 0;
+}
+
+.tabs {
+	height: 330px;
+	border: 1px solid #ddd;
+}
+
+.clear-button {
+	background: url('../images/ext_icons/cancel.png') no-repeat center center;
+}
+
+.clear-button-hover {
+	opacity: 1.0;
+	filter: alpha(opacity = 100);
+}
+
+.clear-button {
+	width: 18px;
+	height: 20px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+.dialog-search-button {
+	width: 100px;
+}
+.gridTitle{
+	background-color:#EAF2FF; 
+	border:1px solid #95B8E7; 
+	font-size:12px; 
+	font-weight:bold;
+	height:20px; 
+	padding-top:3px;
+	padding-left:10px; 
+	margin-left:-3px;
+}
+/* 屏蔽以修正弹出框不居中显示的问题
+.window,.window-shadow {
+	position : fixed !important;
+	top : 0 !important;
+}
+*/
+/*全屏显示CSS*/
+:-webkit-full-screen {
+  background: #e0ecff;
+}
+
+:-moz-full-screen {
+  background: #e0ecff;
+}
+
+:-ms-fullscreen {
+  background: #e0ecff;
+}
+
+:full-screen { /*pre-spec */
+  background: #e0ecff;
+}
+
+:fullscreen { /* spec */
+  background: #e0ecff;
+}
+
+/* 清除浮动 */
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+

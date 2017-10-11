@@ -1,0 +1,45 @@
+<table class="mytable" style="width:650px; height:940px; margin:0 auto; display: block;">
+    <thead style="display: block;">
+    <tr style="display: block;">
+        <td style="width:100%; height:124px; background:#000; display: block;">
+            <img src="$!imageSrc" alt="transn-logo" style="margin-top:34px; margin-left:42px;"/>
+    </tr>
+    </thead>
+    <tbody style="padding:45px; display: block;">
+    <tr class="mytbodybox" style="padding:59px; background:#eee; display: block;">
+##        <td style="margin-top:25px; display: block;">Email: $!sysUser.username</td>
+##        <td style="margin-top:25px; display: block;">Name: $!sysUser.nickname</td>
+##        <td style="margin-top:25px; display: block;">Phone: $!sysUser.phone</td>
+##        <td style="margin-top:25px; display: block;">Addresee: $!sysUser.address</td>
+##        <td style="margin-top:25px; display: block;">订单编号: $orderNos</td>
+##        <td style="margin-top:25px; display: block;">订单状态: 进行中</td>
+##        <td style="margin-top:25px; display: block;">支付状态: 已支付</td>
+##        <td style="margin-top:25px; display: block;">文件下载链接: <a href="http://10.5.110.183:8089/admin/ce_order/list">链接地址</a></td>
+##        <td style="margin-top:25px; display: block;">Total price: $price</td>
+##        <td style="margin-top:25px; display: block;"></td>
+        <td style="margin-top:25px; display: block;">用户ID：$!sysUser.id</td>
+        #foreach($!mdOrderVo in $!mdOrderVoList)
+            <td style="margin-top:25px; display: block;">订单编号：$!mdOrderVo.orderNo</td>
+            <td style="margin-top:25px; display: block;">金额：$!mdOrderVo.price</td>
+                #if($!mdOrderVo.payStatus == "3")
+                        <td style="margin-top:25px; display: block;">付款：已支付</td>
+                    #else
+                        <td style="margin-top:25px; display: block;">付款：未支付</td>
+                #end
+            <td style="margin-top:25px; display: block;">优惠码：$!mdOrderVo.promoCode</td>
+
+            #foreach($!orgFile in $!mdOrderVo.mdOrderFileListOrg)
+                <td style="margin-top:25px; display: block;">文件链接：<a>$!orgFile.filePath</a></td>
+                <td style="margin-top:25px; display: block;">播放时长：$!orgFile.length<span>(mins)</span></td>
+            #end
+        #end
+    </tr>
+    </tbody>
+    <tfoot style="width:100%; padding:43px 0 27px 0; background:#000; color: #fff; text-align: center; display: block;">
+    <tr style="display: block;">
+        <td style="display: block;"><a href="mailto:global-support@transn.com">global-support@transn.com</a></td>
+        <td class="mynews" style="font-size: 14px; display: block;">Copyright © 2006-2016 TransnCo., Ltd, All Rights Reserved</td>
+        <td style="display: block;"><a>www.transn.com</a></td>
+    </tr>
+    </tfoot>
+</table>

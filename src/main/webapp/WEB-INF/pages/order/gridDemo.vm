@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <title>测试登录功能</title>
+    #parse("/common/include.vm")
+<style>
+	.ddgl{
+		text-align:left; 
+		
+	}
+	.ddglName{
+		text-align:right; 
+	}
+	.list_table td{
+	padding-right:10px!important;
+	border-left:0px!important;
+	}
+	.list_table th{
+	border-left:0px!important;
+	}
+	.list_table{
+	border-right:0px!important;
+	}
+</style>
+<script type="text/javascript">
+	function toSubmit(){
+		var params = { tplid:  "tpl_list_table",
+				tableid: "list_table",
+				tablepageid: "list_table_page",
+			   	pageNumInputName:"pageNum",
+			   	pageSizeInputName:"pageSize",
+			   	orderBy:"orderBy",
+		    	selectPage:"selectPage",
+		    	newView: false};
+		$("#searchForm").pageSearch(params);
+	}
+	
+	//查看异动日志
+	function enterLog(){
+	}
+	
+	function layerOut(refcode){
+		layer.alert('已审批成功!');
+	}
+</script>
+<script id="tpl_list_table" type="text/html">
+<div>
+	<table border="0" cellpadding="0" cellspacing="0" class="list_table">
+		<tr>
+			<th align="center">Country</th>
+			<th align="center">Translate from</th>
+			<th align="center">Translate to</th>
+		</tr>
+		{{# for(var i = 0, len = d.resultList.length; i < len; i++){ }}
+			<tr class="tr">
+				<td class="td_center">{{d.resultList[i].orderno }}</td>
+				<td class="td_center">{{d.resultList[i].slan }}</td>
+				<td class="td_center">{{d.resultList[i].tlan }}</td>
+    		</tr>
+		{{# } }} 
+	</table>
+</div>
+</script>
+</head>
+<body>
+	<div class="container">
+  	  	<div id="search_bar">
+       		<div class="box">
+          		<div class="box_border">
+            		<div class="box_center pt10 pb10">
+            			<form action="/order/orderGrid" id="searchForm" name="searchForm" method="post" target="_blank">
+            				<input type="hidden"  name="pageNum" value="1" id="pageNum"/>
+							<input type="hidden"  name="pageSize" value="10" id="pageSize"/>
+							<input type="hidden"  name="orderBy" value="create_time desc" id="orderBy"/>
+              				<table class="table01" border="0" cellpadding="0" cellspacing="0"> 
+              					<tr>
+              						<td class="ddglName" >
+              							参考码
+              						</td>
+              						<td class="ddgl">
+              							<input type="text" name="refcode" class="input-text lh25" datatype="/^-?[1-9]+(\.\d+)?$|^-?0(\.\d+)?$|^-?[1-9]+[0-9]*(\.\d+)?$/" size="10" />
+              						</td>
+              						<td class="ddglName">最早到期日</td>
+                  					<td><input type="text" name="duDate" class="input-text Wdate" size="10" onClick="WdatePicker()"></td>
+              						<td>
+										<input type="button" id="searchFormButton" name="button" value="查询" onclick = "toSubmit();" class="ext_btn ext_btn_submit" />
+									</td>
+								</tr>
+              				</table>
+              			</form>
+            		</div>
+          		</div>
+        	</div>
+		</div>
+		<table width="" cellpadding="1" style="margin-top: 3px;">
+			<tr>
+				<td width="100px">
+	 				<input type="button" value="日志" class="ext_btn ext_btn_submit" onclick="enterLog();">
+			 	</td>
+			</tr>
+		</table>
+		<div class="clearfix"></div>
+      	<div  class="mt10 product-list" style="display:table;">
+        	<div class="box span10 oh" id="list_table">
+             	<!-- 显示列表 ID不能修改 -->   
+        	</div>
+        	<div id="list_table_page">
+        		<!-- 分页  ID不能修改-->
+     		</div>
+		</div>
+	</div>
+</body>
+</html>

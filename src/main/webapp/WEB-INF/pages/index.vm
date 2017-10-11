@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MEDIA SERVICES OF TRANSCRIPTION, VOICE TALENT , SUBTITLING</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    #parse("/common/include.vm")
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+    <script type="text/javascript" src="/scripts/pages/index.js"></script>
+	<link rel="stylesheet" href="/css/index.css"/>
+	<link rel="stylesheet" href="/css/myOrder1.css"/>
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+
+		<!--head end-->        
+        <div class="nav-box"></div>
+        
+        <!--banner-new --login-->
+        <div class="banner-new">
+            <!--登录注册后加上reg-login-after类，将txt-list隐藏，txt-list-after显示，显示登录注册后的样式.-->
+            <div class="center clearfix">
+                <div class="left">
+                    <h2>MEDIA SERVICES OF  </h2>
+                    <h2>TRANSCRIPTION,</h2>
+                    <h2>VOICE TALENT , SUBTITLING</h2>
+                </div>
+            
+				<div class="right">
+                    #if (!$email)
+                        <div class="form-box" id="formLogin"  style="display: block;">
+                            <p class="inp-warp">
+                                <img src="/images/myorder/images/em.png" alt="email"/><input type="text" id="loginName" class="inp email" placeholder="Enter your e-mail adress"/>
+                                <span class="error"></span>
+                            </p>
+                            <p class="inp-warp">
+                                <img src="/images/myorder/images/psw.png" alt="email"/><input id="passwordInput" type="password" class="inp psw" placeholder="Enter your password"/>
+                                <span class="error">incorrect password</span>
+                            </p>
+                            <input type="button" value="LOGIN IN" class="form-btn"/>
+                            <p class="links clearfix"><a href="javascript:;" class="sign">SIGN UP</a><a href="javascript:;" class="forget">FORGOT YOUR PASSWORD?</a></p>
+                        </div>
+                    #end
+
+                    <form class="form-box form-sign" id="formSign">
+                        <p class="inp-warp">
+                            <img src="/images/myorder/images/em.png" alt="email"/><input type="text" class="inp email" placeholder="Enter your e-mail adress"/>
+                            <span class="error"></span>
+                        </p>
+                        <p class="inp-warp">
+                            <img src="/images/myorder/images/psw.png" alt="email"/><input type="password" class="inp psw1" placeholder="Enter your password"/>
+                            <span class="error psw-error1"></span>
+                        </p>
+                        <p class="inp-warp">
+                            <img src="/images/myorder/images/psw.png" alt="email"/><input type="password" class="inp psw2" placeholder="Confirm password"/>
+                            <span class="error psw-error"></span>
+                        </p>
+                        <p class="slt-warp slt-warp1">
+                            <span class="chk-warp"><input type="checkbox" id="chkEmail"/><span class="chk">多选框样式</span></span>
+                            <label for="chkEmail">You would like to receive updates, news and &nbsp;&nbsp;&nbsp;&nbsp;Transn’s offer via email E-mails</label>
+                        </p>
+                        <p class="slt-warp">
+                            By clicking ‘Sign Up’, you are agreeing to Transn’s <br/><a href="/sg/toTermsPage">Terms & Conditions</a> and
+                            <a href="toPrivacyPage">Quality Policy</a>
+                        </p>
+                        <input type="button" value="SIGN UP" class="form-btn"/>
+                        <p class="links clearfix"><a href="javascript:;" class="sign">LOGIN IN</a><a href="javascript:;" class="forget">FORGOT YOUR PASSWORD?</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!--part2-->
+        <div class="container myPart2-order clearfix">
+        	<div class="myPart2-order-left">
+        		<div class="myPart2-order-left-top">
+        			<p>We transcribe all major audio and video file formats. View your complete list. If you have a lar</p>
+	        		<p>ge file, or upload fails, it is recommended that you upload your files to your web space, such as network disk </p>
+	        		<p>or dropbox, then use the “ADD URLs” with download-address of your files to submitt to us.</p>
+	        		
+	        		<div class="p2-top-btn clearfix">
+	        			<div class="p2-top-btn-left">
+	        				<a><img src="/images/myorder/images/mytext1.png">Upload Files</a>
+	        			</div>
+	        			<div class="p2-top-btn-right">
+	        				<a><img src="/images/myorder/images/myie.png">Add URLs</a>
+	        			</div>
+	        		</div>	        			        		
+        		</div>
+        		
+        		<!--line-->
+        		<div class="mynewline clearfix">
+        			<div class="mynewline-left"></div>
+        			<div class="mynewline-middle"><h3>FILE</h3></div>
+        			<div class="mynewline-right"></div>
+        		</div>
+        		
+        		<div class="myp2-table">
+        			<table id="fileListTable">
+        				<thead>
+        					<tr>
+        						<td>FILE NAME/URL</td>
+        						<td>LENGTH</td>
+        						<td>COST</td>
+        					</tr>
+        				</thead>
+        				<tbody>
+
+        				</tbody>
+                        <tfoot>
+							<tr >
+								<td></td>
+                                <td></td>
+                                <td></td>
+							</tr>
+                            <tr >
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+							<tr class="myFoottr2">
+                                <td>TOTAL</td>
+                                <td>0m</td>
+                                <td>$<span>0.00</span></td>
+							</tr>
+
+                        </tfoot>
+        			</table>
+        		</div>
+
+##				<div>total</div>
+##				<div>length</div><div id="length"></div>
+##				<div>cost</div><div id="cost"></div>
+        		<div class="myp2-middle clearfix">
+        			<div class="myp2-middle-left">
+        				<div class="myp2-middle-left-main">
+        					<h5>TURNAROUND AND PRICES</h5>
+        					<form action="" class="form-box-new form-sign-new" id="">
+        						<table class="formTable">
+        							<tbody>
+									#foreach($turnList in $turnaroundPriceList)
+										<tr>
+											<td>
+												<p class="slt-warp-new slt-warp1-new">
+													<span class="chk-warp-new">
+														#if($!othList.value == "4")
+															<input type="radio" name="turnaroundTime" value="$!turnList.value" checked/>
+														#else
+															<input type="radio" name="turnaroundTime" value="$!turnList.value"/>
+														#end
+														<span class="chk-new">多选框样式</span>
+													</span>
+												</p>
+											</td>
+											<td>
+												$!turnList.desc
+											</td>
+											<td>
+												$<span>$!turnList.label</span>/min
+											</td>
+										</tr>
+									#end
+        							</tbody>
+        						</table>
+
+        					</form>
+        				</div>
+        			</div>
+        			<div class="myp2-middle-right">
+        				<div class="myp2-middle-right-main">
+        					<h5>
+        						OPTIONS<img src="/images/myorder/images/mywen.png"/>
+        						<div class="appearMessage">       			
+        							<p>Additional Services</p>
+        							<p>Transcription projects don't need these</p>
+        							<p>features, but if yours do, we're happy to help!</p>
+        						</div>
+        					</h5>
+        					<form action="" class="form-box-new-right form-sign-new-right" id="">
+        						<table class="formTable">
+        							<tbody>
+									#foreach($othList in $otherServicesList)
+										<tr>
+											<td>
+												<p class="slt-warp-new-right slt-warp1-new-right">
+													<span class="chk-warp-new-right">
+														#if($!othList.value == "1")
+															<input type="checkbox" name="otherServices" value="$!othList.value" checked/>
+														#else
+															<input type="checkbox" name="otherServices" value="$!othList.value"/>
+														#end
+														
+														<span class="chk-new-right">多选框样式</span>
+													</span>
+												</p>
+											</td>
+											<td>
+												$!othList.desc
+											</td>
+											<td>
+												$<span>$!othList.label</span>/min
+											</td>
+										</tr>
+									#end
+        							</tbody>
+        						</table>
+	        					
+        					</form>
+        				</div>
+        			</div>
+        		</div>
+        		<!--line-->
+        		<div class="mynewline clearfix">
+        			<div class="mynewline-left"></div>
+        			<div class="mynewline-middle"><h3>REMARKS</h3></div>
+        			<div class="mynewline-right"></div>
+        		</div>
+        		
+        		<div class="mytextarea">
+        			<textarea id="remarks"></textarea>
+        		</div>
+        		
+        		<div class="p2-messages">
+        			<h4>
+        				Notes:
+        			</h4>
+        			<ol type="1">
+        				<li>Please set your project according to the actual situation, and do not hesitate to contact us if there are any  
+    						differences between estimated and actual price.
+        				</li>
+        				<li>
+        					The turnaround time is generally calculated based on business days, the Orders will be delivered within 
+     						the selected period. The duration of file shall be less than 1 hour if you choose the “1 Day Service”.
+        				</li>
+        				<li>
+        					The above contents mainly apply to monolingual transcription. If you need to make bilingual transcription 
+						    - translate into other languages after transcribing, you can contact us for details.
+						    If you have any other questions, you can view FAQs, or send us e-mail.
+        				</li>
+        			</ol>
+        		</div>
+        		
+        		
+        	</div>
+        	
+        	<div class="myPart2-order-right">
+        		<div class="myPart2-order-right-main">
+        			<h5>ORDER SUMMARY</h5>
+        			<div class="myPart2-right-table">
+        				<table id="orderSummaryTable">
+        					<tbody>
+        						<tr>
+        							<td>Files Uploaded</td>
+									<td><span>0</span> (<span>0</span>min)</td>
+        						</tr>
+        						<tr class="needline">
+        							<td>Delivery Date</td>
+        							<td>?</td>
+        						</tr>
+        						<tr>
+        							<td class="hasWeight">Order total </td>
+        							<td class="hasred">＄<span id="totalPrice">0.00</span></td>
+        						</tr>
+        					</tbody>
+        				</table>
+        			</div>
+        			
+        			<p class="paypalBox">
+        				Secure payment with <img src="/images/myorder/images/paypal.png"/>
+        			</p>
+        			<a class="payBtn" id="payBtn">PAY NOW</a>
+        			<p class="help-block clearfix">
+						<a></a>
+        				##<a>Help</a>
+        				<a href="javascript:viewFullQuote();">View Full Quote</a>
+        			</p>
+        			<p class="PromoCode">Promo Code (Optional)</p>
+        			<div class="myIptBox-main-1 clearfix">
+        				<input type="text" id="promoCodeInput" placeholder="Enter Promo Code" />
+        					<span id="submitPromoCodeBtn">
+        						OK
+        					</span>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        
+       <form id="viewFullQuoteForm" action="placeOrder/viewFullQuote" method="post" target="_blank">
+    		<input type="hidden" name="orderNo" id="orderNoVFQF"/>
+    		<input type="hidden" name="turnaroundTime" id="turnaroundTimeVFQF"/>
+    		<input type="hidden" name="otherServices" id="otherServicesVFQF"/>
+    		<input type="hidden" name="deliveryDateStr" id="deliveryDateVFQF"/>
+    		<input type="hidden" name="remarks" id="remarkVFQF"/>
+    		<input type="hidden" name="price" id="priceVFQF"/>
+        </form>
+        <!--引入footer-->
+        #parse("/common/footer.vm")
+    </div>
+    <!--<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>-->
+    
+	<div class="mask-bg"></div>
+    <div class="mask-box" id="forget">
+        <a href="javascript:;" class="close">关闭</a>
+        <h2>Forgotten Password</h2>
+        <p class="txt1">
+            <span>Your Email Address</span><br/>
+            Please enter your email address and click on submit.
+        </p>
+        <p class="txt2">We will send you an email that containing the link that you can click to creat a new password.</p>
+
+        <p class="inp-warp inp-email-warp">
+
+            <input type="text" id="email" class="inp" placeholder="E-mail address"/>
+            <span class="error">Please enter the correct E-mail address</span>
+            <span id="loaderGif"><span>60</span> s</span>
+            <span class="mask-ipt"></span>
+            <input type="text" id="captchaStr" class="inp psw cap-ipt" placeholder="Verification code"/><button id="btn-code">Send verification code</button>
+            <span class="error">Please enter the correct Verification code</span>
+
+            <input type="password" id="psw" class="inp psw" placeholder="Enter password"/>
+            <span class="error">Please enter the correct password</span>
+            <input type="password" id="psw2" class="inp psw" placeholder="Confirm password"/>
+
+            <input type="button" class="btn" value="OK"/>
+
+        </p>
+##        <p class="txt1"><span>Or, Please Try Signing in Again</span><br/></p>
+##        <form action="" class="mask-box-login">
+##            <p class="inp-warp">
+##                <input type="text" class="inp email" placeholder="Enter your e-mail address"/>
+##                <span class="error">Please enter the correct E-mail address</span>
+##            </p>
+##            <p class="inp-warp">
+##                <input type="text" class="inp psw" placeholder="Enter your e-mail address"/><input type="button" class="btn" value="Submit"/>
+##                <span class="error">Please enter the correct E-mail address</span>
+##            </p>
+##        </form>
+    </div>
+    
+    <div class="upload-text">   	
+    	<div class="upload-text-imgBox">
+    		<img src="/images/myorder/images/my-Tbj1.png" / class="upload-text-img">
+    	</div>    	
+    	<div class="upload-text-textBox">
+    		<a href="javascript:;" class="close">关闭</a>
+    		<h4>UPLOAD FILES</h4>
+    		<ol>
+    			<li>We accept all kinds of video, audio, captions, transcript, and subtitle 
+      				file types (such as MP3, MP4, WMV, AIF, M4A, MOV, AVI, VOB, 
+      				AMR, WMA, OGG, WAV, DOC, DOCX, SCC, XLS, XLSX, TXT and SRT etc.) , and we can
+      				output whatever format you need.
+    			</li>
+    			<li>If your file size exceeds 500M, we suggest that offer it by “Add
+       				URLs”would be more quickly.
+    			</li>
+    		</ol>
+            <a class="uploadBtn" id="filePicker">UPLOAD FILES</a>
+            <button id="ctlBtn" class="btn btn-default" style="display: none">开始上传</button>
+    	</div>
+    </div>
+    
+    <div class="url-text">
+    	<div class="url-text-imgBox">
+    		<img src="/images/myorder/images/my-Tbj.png" / class="url-text-imgBox-img">
+    	</div> 
+    	<div class="url-text-textBox">
+    		<a href="javascript:;" class="close">关闭</a>
+    		<h4>ADD URLS</h4>
+    		<p>Add URLs (e.g. Dropbox, YouTube, Google Drive or 
+				other cloud platforms)
+    		</p>
+
+    		<div class="url-input"><textarea class="ipt1-text" placeholder="Please enter URLs(one line per URL) "></textarea></div>
+            <div class="url-input"><input type="text" placeholder="Please enter time length in minute"/ class="ipt1"></div>
+
+            <input type="button" value="Submit" class="url-input-ipt2" onclick="submitUrl()">
+    	</div>
+    </div>
+
+    <div class="url-news">
+        <div class="url-text-imgBox">
+            <img src="/images/myorder/images/my-Tbj.png" / class="url-text-imgBox-img">
+        </div>
+        <div class="url-news-textBox">
+##            <a href="javascript:;" class="close">关闭</a>
+			<div>
+                <input type="text" class="myIptnew" placeholder="Please enter time length in minute" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+					   onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+				<button id="okBtn">OK</button>
+			</div>
+        </div>
+    </div>
+
+	<!--隐藏域：存储orderId和orderNo-->
+    <form id="payForm" method="post" action="/order/toPaypal" target="_blank">
+        <input type="hidden" name="orderId" id="orderId" value="" />
+        <input type="hidden" name="orderNo" id="orderNo" value="" />
+    </form>
+</body>
+</html>

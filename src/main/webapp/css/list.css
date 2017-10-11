@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/***
+ * Transn Detail Style
+ * List Page Style
+ **/
+
+.list .listDiv {
+	width: 101.5%;
+}
+
+.list table.listTable {
+	width: 100%;
+	border: 2px solid #E0ECFF;
+}
+
+.list table.listTable th {
+    position:relative;
+	height: 29px;
+	line-height: 29px;
+	padding-left: 5px;
+	font-size: 12px;
+	font-family: "宋体", Arial;
+	text-align: center;
+	/*border: 1px solid #AEE4FE;*/
+	white-space:nowrap;
+	line-height: 20px;
+	color: #333333;
+	border-bottom: 1px solid #e1e1e1;
+	background-color: #f8f8f8;
+}
+
+.list table.listTable th.check {
+	width: 50px;
+}
+
+.list table.listTable td {
+	height: 22px;
+	line-height: 22px;
+	padding-left: 5px;
+	word-break: break-all;
+	font-size: 12px;
+	font-family: "宋体", Arial;
+	border-bottom: 1px solid #f0f0f0;
+	white-space:nowrap;
+	/*border: 1px solid #AEE4FE;*/
+	color: #333333;
+	border-bottom: 1px solid #e1e1e1;
+	border: 1px solid #f8f8f8;
+}
+
+.list table.listTable td a {
+	color: #336699;
+}
+
+.list table.listTable td.left {
+	text-align: left;
+}
+
+.list table.listTable td.center {
+	text-align: center;
+}
+
+.list table.listTable td.right {
+	text-align: right;
+}
+
+.list table.listTable td a:hover {
+	color: #836FFF;
+}

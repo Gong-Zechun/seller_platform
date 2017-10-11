@@ -1,0 +1,31 @@
+<table class="mytable" style="width:650px; height:940px; margin:0 auto; display: block;">
+    <thead style="display: block;">
+    <tr style="display: block;">
+        <td style="width:100%; height:124px; background:#000; display: block;">
+            <img src="$imageSrc" alt="transn-logo" style="margin-top:34px; margin-left:42px;"/>
+    </tr>
+    </thead>
+    <tbody style="padding:45px; display: block;">
+    <tr class="mytbodybox" style="padding:59px; background:#eee; display: block;">
+        <td style="margin-top:25px; display: block;">Dear ${user}:</td>
+        <td style="margin-top:25px; display: block;">Thank you for your interest in our services!</td>
+        <td style="margin-top:25px; display: block;">Your order reference:${orderNo}</td>
+        <td style="margin-top:25px; display: block;">We have received your order details and will process your order as soon as the payment is completed.</td>
+
+        <td style="margin-top:25px; display: block;">If you have yet to make the payment, please do so via the following link:
+            <a href="${orderLink}">Order Summary Link</a></td>
+        <td style="margin-top:25px; display: block;">You can also login the website with your user name:${user} to track the status of your order.</td>
+        <td style="margin-top:25px; display: block;">If you have any problem with the price, please contact with our online service or <a href="mailto:global-support@transn.com">global-support@transn.com</a></td>
+        <td style="margin-top:25px; display: block;">Best regards,</td>
+        <td style="margin-top:25px; display: block;">Transn support team</td>
+    </tr>
+    </tbody>
+    <tfoot style="width:100%; padding:43px 0 27px 0; background:#000; color: #fff; text-align: center; display: block;">
+    <tr style="display: block;">
+        <td style="display: block;"><a href="mailto:global-support@transn.com">global-support@transn.com</a></td>
+        <td class="lasttd" style="margin-bottom: 26px; display: block;">Tel: (65) 6493 7321     Singapore Office</td>
+        <td class="mynews" style="font-size: 14px; display: block;">Copyright © 2006-2016 TransnCo., Ltd, All Rights Reserved</td>
+        <td style="display: block;"><a>www.transn.com</a></td>
+    </tr>
+    </tfoot>
+</table>

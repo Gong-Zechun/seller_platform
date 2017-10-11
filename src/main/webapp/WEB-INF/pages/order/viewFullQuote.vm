@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Full Quote</title>
+	#parse("/common/include.vm")
+    #*[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]*#
+   <link rel="stylesheet" href="/css/viewFullQuote.css"/>
+   <script>
+   		function download(orderId){
+    		$("#orderId").val(orderId);
+			$("#downloadQuoteForm").submit();
+            layer.closeAll();
+		}
+   </script>
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+
+		##详情页面
+		#parse("/order/quoteDetail.vm")
+		
+        ##引入footer部分
+		#parse("/common/footer.vm")
+    </div>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+</body>
+</html>

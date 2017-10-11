@@ -1,0 +1,332 @@
+@charset "utf-8";
+
+/**
+ * Transn Common Style
+ * Detail Page Style
+ **/
+ 
+.detail {
+	padding-bottom: 0px;
+	margin: 0 auto; /**body居中**/
+}
+
+.detail table.inputTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.detail table.inputTable th {
+	width: 150px;
+	line-height: 20px;
+	padding: 2px 0 2px 0;
+	text-align: right;
+	color: #333;
+	font-size: 12px;
+	border-bottom: 1px solid #95b8e7;
+	/* border-right: 1px solid #95b8e7; */
+	background-color: #f4f4f4;
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFF5FF,endColorstr=#E0ECFF,GradientType=0);
+	
+}
+
+.detail table.inputTable tr:hover th {
+	background-color: #e0ecff
+}
+
+.detail table.inputTable tr.title th {
+	text-align: left;
+	padding-left: 0px;
+}
+
+.detail table.inputTable td {
+	line-height: 20px;
+	padding: 2px 0 2px 5px;
+	color: #666;
+	border-bottom: 1px solid #95b8e7;
+	/* border-right: 1px solid #95b8e7; */
+}
+
+.detail table.inputTableL {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.detail table.inputTableL th {
+	width: 280px;
+	line-height: 20px;
+	padding: 2px 0 2px 0;
+	text-align: right;
+	color: #333;
+	font-size: 12px;
+	border-bottom: 1px solid #95b8e7;
+	background-color: #f4f4f4;
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFF5FF,endColorstr=#E0ECFF,GradientType=0);
+}
+
+.detail table.inputTableL tr:hover th {
+	background-color: #e0ecff
+}
+
+.detail table.inputTableL tr.title th {
+	text-align: left;
+	padding-left: 10px;
+}
+
+.detail table.inputTableL td {
+	line-height: 20px;
+	padding: 2px 0 2px 5px;
+	color: #666;
+	border-bottom: 1px solid #95b8e7;
+}
+
+input.inputText {
+	width: 150px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputText:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputText:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextS {
+	width: 75px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextS:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextS:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextXS {
+	width: 35px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextXS:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextXS:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextM {
+	width: 115px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextM:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextM:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextL {
+	width: 200px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextL:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextL:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextXL {
+	width: 260px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextXL:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextXL:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextXXL {
+	width: 300px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextXXL:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextXXL:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextXXXL {
+	width: 400px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextXXXL:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextXXXL:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextXXXXL {
+	width: 500px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextXXXXL:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextXXXXL:focus {
+	background-color: #fff8ef;
+}
+
+input.amtText {
+	text-align: right;
+}
+
+textarea.inputTextarea {
+	width: 350px;
+	height: 80px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+textarea.inputTextarea:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+textarea.inputTextarea:focus {
+	background-color: #fff8ef;
+}
+
+textarea.inputTextareaL {
+	width: 550px;
+	height: 55px;
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+textarea.inputTextareaL:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+textarea.inputTextareaL:focus {
+	background-color: #fff8ef;
+}
+
+input.inputTextArea {
+	padding: 1px;
+	border-top: 1px solid #95b8e7;
+	border-right: 1px solid #95b8e7;
+	border-bottom: 1px solid #95b8e7;
+	border-left: 1px solid #95b8e7
+}
+
+input.inputTextArea:hover {
+	border: 1px solid #7AC5CD;
+	background-color: #fefbf7;
+}
+
+input.inputTextArea:focus {
+	background-color: #fff8ef;
+}
+
+/**清除样式**/
+.clean {
+	clear: both;
+	height: 0px;
+	border: none;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*只读文本属性*/
+input.textReadonly {
+	background-color: #EBEBEB;
+	color: #404040;
+	border: 1px solid #999999;
+}
+/*本次放款明细表页面Style--Start*/
+	.loanTB{
+		width:600px; height:auto; margin:100px auto;font-size:14px;
+	}
+	.loanTBTitle{
+		font-weight:bold;text-align:center;
+	}
+	.loanRightTD{
+		color: red; font-weight:bold;text-left;
+	}
+	.loanRightDpt{
+		color: red; 
+	}
+/*本次放款明细表页面Style--End*/

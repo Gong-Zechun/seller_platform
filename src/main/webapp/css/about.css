@@ -1,0 +1,97 @@
+.main{width: 80%;margin:4.5% auto;position: relative;min-height: 720px;}
+/*.main .main-left{width: 16.875em;position: absolute;left: 0;top:0;}*/
+/*.main .main-right{padding-left: 20.5em;}*/
+.main .main-left{width: 16.875em;}
+.main .main-right{position:absolute;top:0;left: 20.5em;}
+.main-right p{line-height: 1.5;}
+.main-right h3{font-size: 1.5em;margin-top: 2em;}
+.para-center{text-align: center;}
+.para-center span{display: block;}
+.up{font-size: 2em;position: relative;top:0.1em;}
+.red{color:#e03e25;}
+.bold{font-weight: bold;}
+
+.main-nav .main-nav-top{position:relative;background: #f67662;font-size: 3em;height: 5.6em;color:#fff;font-weight: bold;padding:0.3em 0 0 0.3em;padding-top:.5em;}
+.main-nav .main-nav-top span{display: block;margin-top:1em;}
+.main-nav .main-nav-top:after{position: absolute;right:-1em;top:0.5em;content:"";display:block;border: 0.5em solid;border-color: transparent transparent transparent #f67662;}
+.main-nav-bot{padding:1em 0;border-bottom:2px solid #e03e25;background: #f9f9f9;}
+.main-nav-bot ul li{padding-left:1em;line-height: 3.33em;}
+.main-nav-bot ul li.active a{color:#e03e25;}
+.main-nav-bot ul li a:hover{color:#e03e25;}
+
+.main-right p{margin:1em 0;font-size: 1.125em;}
+.main-right .flash{text-align: center;margin:2em 0;}
+.main-right .flash img{width: 100%;}
+.para-left img{float: left;padding-right: 1em;}
+.para-right img{float: right;padding-left: 1em;}
+
+.main-right .brand-list{padding:5% 0;}
+.main-right .brand-list li{width:20%;text-align: center;float: left;margin:0;padding:0;height: 9em;border:0;}
+.main-right .brand-list p{font-size: 0.8em;padding:0.5em 0;min-height: 3em;}
+
+.partner h1{font-size: 2.8em;height: 2em;}
+.partner-main .main-nav-bot ul li{padding-left: 1em;}
+
+.num-list{border-left: 3px solid #f3b2a8;overflow: hidden;margin:5% 0 0;}
+.num-list .num{font-family: "Arial";font-size:2em;color:#e35b49;margin-top: 1em;}
+.num-list li .time{margin:2% 0 0 6%;font-size: 1em;position: relative;padding-left: 6em;}
+.num-list .time span{position: absolute;left: 0;top:0;}
+
+.num-list li{margin-bottom:5%;}
+.social-main p{min-height:88px;margin-bottom: 1.5em; }
+.para-em-list em{display: inline-block;min-width: 290px;}
+.img-box{text-align: center;}
+
+.img-list-box1 .para-center{width: 33.33%;float: left;}
+.img-list-box1 .para-center span{width:190px;font-size: 0.8em;margin:3% auto;}
+.img-list-box2 .para-center{width: 50%;float: left;}
+.img-list-box2 .para-center span{width: 290px;font-size: 0.8em;margin:3% auto;}
+.para-center span{font-size: 0.8em;margin:1em 0; }
+
+.colleges-list{margin-top:3%;}
+.colleges-list li{width: 25%;height:113px;float: left;margin:1em 0;padding:0;}
+
+.university-table{width: 100%;table-layout: fixed;}
+.university-table td{width: 25%;border:0.5em solid #fff;background: #fdf2f0;text-align: center;font-size: 0.875em;line-height: 2;
+   padding: 0.5em 1em;height: 3em;}
+
+.university-list{width: 100%;margin-top: 5%;display: table;}
+.main-nav-bot ul li .university-list li{width: 25%;float: left;font-size: 0.875em;background: #fdf2f0;
+    box-sizing: border-box;border:0.5em solid #fff;line-height: 1.5;padding:0;min-height: 7em;text-align: center;
+    display: table-cell;vertical-align: middle;}
+
+@media (max-width: 1400px) {
+    .main{width: 90%;}
+    .main-right p{font-size: 1em;}
+    .main-right .brand-list li{width: 25%;}
+    .partner h1{font-size: 2.8em;height: 2em;}
+}
+@media (max-width: 1200px){
+    .main-nav-bot ul li .university-list li{width: 33.33%;}
+}
+@media (max-width: 1024px) {
+    .main{width: 95%;}
+    .main .main-left{width: 14em;}
+    .main-nav-bot ul li{font-size: 1em;padding-left:1em;}
+    .main-nav .main-nav-top{font-size: 2em;}
+    .main .main-right{position:absolute;top:0;left: 16em;}
+    .main-right p{font-size: 0.875em;}
+    .partner h1{font-size: 1.6em;height: 2em;margin-top: -1em;}
+    .partner h1 span{display: inline;}
+    .colleges-list li{width: 33.33%;}
+}
+@media(max-width: 768px){
+    .main .main-left{width: 100%;position: relative;}
+    .main .main-right{position:relative;top:auto;left: 0;}
+    .main-nav .main-nav-top:after{display: none;}
+    .main-nav .main-nav-top span{display: inline;}
+    .main-nav .main-nav-top{height: auto;padding:1em;}
+    .main-nav-bot{padding:0;}
+    .main-nav-bot li{border-bottom: 1px solid #cdcdcd;}
+    .para-center img{width: 100%;}
+    .partner h1{font-size: 1em;height: 2em;margin-top: -2em;}
+    .main-right .brand-list li{width:50%;}
+    .colleges-list li{width: 50%;border:0;}
+    .main-nav-bot ul li .university-list li{width: 50%;}
+    .university-table td{padding:0;}
+}

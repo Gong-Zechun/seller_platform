@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Detail</title>
+	#parse("/common/include.vm")
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    <link rel="stylesheet" href="/css/order.css"/>
+	<script type="text/javascript" charset="utf-8" src="/scripts/pages/order/orderDetail.js"></script>
+</head>
+<body>
+    <div class="warp">
+        ##引入header部分
+        #parse("/common/header.vm")
+
+        <div class="center">
+            <div class="order-detail">
+                <p class="txt"></p>
+                <input id="completeTime" type="hidden" value="$!orderDetail.completeTime"/>
+                <div class="table-list clearfix">
+                    <div class="order">
+                        <p class="order-num">Order number:$orderDetail.orderNo</p>
+                        <div class="clearfix">
+                            <p class="order-time">Order date and time:$orderDetail.createDate</p>
+                            <p class="order-state">Order Status:
+                                #if($orderDetail.status == 1 && ($orderDetail.payStatus == 1 || $orderDetail.status == 4))
+                                    Unpaid
+                                    #elseif($orderDetail.status == 2 && $orderDetail.payStatus == 3)
+                                    Being translated
+                                    #elseif($orderDetail.status == 6 && $orderDetail.payStatus == 3)
+                                    Unconfirmed
+                                    #elseif($orderDetail.status == 3 && $orderDetail.payStatus == 3)
+                                    Completed
+                                #end
+
+                            </p>
+                        </div>
+                        <div class="order-table clearfix">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td class="country">FILE NAME/URLFILE NAME/URL</td>
+                                    <td class="country">TURNAROUND AND PRICES</td>
+									<td class="country">OPTIONS</td>
+									<td class="country">FILE SIZE</td>
+									<td class="country">LENGTH</td>
+									<td class="country">DELIVERY DATE</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+    								#set($mdOrderFileList = $orderDetail.mdOrderFileListOrg)
+            						#set($orderSize = $mdOrderFileList.size()) 
+            						#foreach($mdOrderFile in $mdOrderFileList)
+            							#set($index = ${velocityCount})  
+            							<tr>
+                                            <td class="country">
+            									<p>$!mdOrderFile.fileName</p>
+            									<p>$!mdOrderFile.remarks</p>
+            								</td>
+                                            <td class="country">
+            									#foreach($turnaroundPrice in $turnaroundPriceList)
+            										#if($!turnaroundPrice.value == $orderDetail.turnaroundTime)
+                										<p>$!turnaroundPrice.desc</p>
+                										<p>$$!turnaroundPrice.label/min</p>
+            										#end
+            									#end
+                        					</td>
+            								<td class="country">
+            									#foreach($otherServices in $otherServicesList)
+            										#if($!orderDetail.otherServices.indexOf($otherServices.value) > -1)
+                										<p>$!otherServices.desc $$!otherServices.label/min</p>
+            										#end
+            									#end
+                        					</td>
+                        					<td class="country">$!mdOrderFile.size M</td>
+                        					<td class="country">$!mdOrderFile.length min</td>
+                        					<td class="country">$!orderDetail.deliveryDate</td>
+                                        </tr>
+                                    #end 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-detail line">
+                    <h2>Remarks</h2>
+                    <p class="remark">$!orderDetail.remarks</p>
+                    <p class="total">Order total <span>$ $!orderDetail.price</span></p>
+                </div>
+                <div class="item-detail doc clearfix" id="transnDoc">
+                    <h2>Translated File(s)</h2>
+                    <div class="half half1">
+                        <ul class="file-list">
+							#foreach($mdOrderFile in $orderDetail.mdOrderFileListFinal)
+								<li>
+                                    <div class="file-name">$!mdOrderFile.fileName</div>
+                                    <a href="javascript:downloadFile($!mdOrderFile.id);" class="download">Download</a>
+                                </li>
+							#end
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       ##引入footer部分
+       #parse("/common/footer.vm")
+    </div>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+    ##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+</body>
+</html>

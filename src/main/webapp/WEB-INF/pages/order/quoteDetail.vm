@@ -1,0 +1,90 @@
+       #*head end*#        
+        <div class="nav-box"></div>
+        
+        #*banner*#
+        <div class="myOrderbanner2">
+        	<img src="../images/myorder/images/myorder2-banner.jpg"/>
+        	<h3 class="myMiddleText">VIEW FULL QUOTE</h3>
+        </div>
+        
+        #*main *#
+        <div class="order2-main container">
+        	<div class="mynewline clearfix">
+        		<div class="mynewline-left"></div>
+        		<div class="mynewline-middle"><h3>FULL QUOTE</h3></div>
+        		<div class="mynewline-right"></div>
+        	</div>
+        	
+        	<div class="order2-main-table">
+        		<table>
+        			<thead>
+        				<tr>
+        					<td>FILE NAME/URLFILE NAME/URL</td>
+        					<td>TURNAROUND AND PRICES</td>
+							<td>OPTIONS</td>
+        					<td>FILE SIZE</td>
+        					<td>LENGTH</td>
+        					<td>DELIVERY DATE</td>
+        				</tr>
+        			</thead>
+        			<tbody>
+						#set($mdOrderFileList = $orderDetail.mdOrderFileListOrg)
+						#set($orderSize = $mdOrderFileList.size()) 
+						#foreach($mdOrderFile in $mdOrderFileList)
+							#set($index = ${velocityCount})  
+							<tr>
+                                <td>
+									<p>$!mdOrderFile.fileName</p>
+									<p>$!mdOrderFile.remarks</p>
+								</td>
+                                <td>
+									#foreach($turnaroundPrice in $turnaroundPriceList)
+										#if($!turnaroundPrice.value == $orderDetail.turnaroundTime)
+    										<p>$!turnaroundPrice.desc</p>
+    										<p>$$!turnaroundPrice.label/min</p>
+										#end
+									#end
+            					</td>
+								<td>
+									#foreach($otherServices in $otherServicesList)
+										#if($!orderDetail.otherServices.indexOf($otherServices.value) > -1)
+    										<p>$!otherServices.desc $$!otherServices.label/min</p>
+										#end
+									#end
+            					</td>
+            					<td>$!mdOrderFile.size M</td>
+            					<td>$!mdOrderFile.length min</td>
+            					<td>$!orderDetail.deliveryDate</td>
+                            </tr>
+                        #end  
+        			</tbody>
+        		</table>
+        	</div>
+        	
+        	<div class="mynewline clearfix">
+        		<div class="mynewline-left"></div>
+        		<div class="mynewline-middle"><h3>REMARKS</h3></div>
+        		<div class="mynewline-right"></div>
+        	</div>
+        	
+        	<div class="myTextBox">
+        		<p>$orderDetail.remarks</p>
+        	</div>
+        	
+        	<div class="mynewline1 clearfix">
+        		<div class="mynewline1-left"></div>
+        		<div class="mynewline1-middle"><h3>ORDER TOTAL &nbsp;&nbsp;&nbsp;&nbsp;<span class="hasred">$orderDetail.price USD</span> </h3></div>
+        		<div class="mynewline1-right"></div>
+        	</div>
+			
+			<form id="downloadQuoteForm" action="downloadQuote" method="post">
+				<input type="hidden" name="orderId" id="orderId"/>
+        		<input type="hidden" name="turnaroundTime" value="$!orderDetail.turnaroundTime"/>
+        		<input type="hidden" name="otherServices" value="$!orderDetail.otherServices"/>
+        		<input type="hidden" name="deliveryDateStr" value="$!orderDetail.deliveryDate"/>
+        		<input type="hidden" name="remarks" value="$!orderDetail.remarks"/>
+        		<input type="hidden" name="price" value="$!orderDetail.price"/>
+            </form>
+			<a class="download" href="javascript:download(encryptedStr($orderDetail.id));"><img src="../images/myorder/images/order2-yun.png"/>DOWNLOAD</a>
+        </div>
+        

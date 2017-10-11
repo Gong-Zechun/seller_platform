@@ -1,0 +1,47 @@
+		<div class="footer">
+            <div class="con clearfix">
+                <div class="foot-left">
+                	<a href="http://www.transn.com/index.html">
+                		<img src="/images/index/images/logo.png" alt="logo"/>
+                	</a>
+                    
+                    <p>Copyright © 2006-2017 Transn IOL Technology <span>Co., Ltd, All Rights Reserved.</span></p>
+                </div>
+                <div class="foot-right">
+                    <div class="foot-right-top clearfix">
+                        <p class="align-left">Link Language to Success</p>
+                        <p class="align-right"><a href="http://www.transn.com/privacy-policy.html">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.transn.com/terms-condition.html">Terms & Condition</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.transn.com/sitemap.html">Sitemap</a></p>
+                    </div>
+                    <div class="foot-right-bot clearfix">
+                        <div class="link-list">
+                            <span class="a-link" href="">About us</span>
+                            <ul>
+                                <li><a href="http://www.transn.com/contact-us/contact-information.html">Introduction of Transn</a></li>
+                                ##<li><a href="###">ISO Certified</a></li>
+                                <li><a href="http://www.transn.com/about/partners.html">Customers & Partners</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-list">
+                            <span class="a-link">Contact us</span>
+                            <ul>
+                                <li><a href="http://www.transn.com/about/company-profile.html">Company Profile</a></li>
+                                <li><a href="http://www.transn.com/contact-us/branch-company.html">Branch Office </a></li>
+                            </ul>
+                        </div>
+                        <div class="link-list link-list-row">
+                            <span class="a-link">Join us</span>
+                            <ul>
+                                <li><a href="http://www.transn.com/join-us/join-transn-as-a-translator.html">Translator</a></li>
+                                <li><a href="http://www.transn.com/join-us/join-transn-as-an-employee.html">Jobs</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-list">
+                            <span class="a-link">Branch Office </span>
+                            <ul>
+                                <li><a href="http://www.transn.com.sg/">Singapore</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

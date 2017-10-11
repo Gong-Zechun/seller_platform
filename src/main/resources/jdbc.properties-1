@@ -1,0 +1,9 @@
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://127.0.0.1:3306/transn_global?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+jdbc.username=global_user
+jdbc.password=global!123
+jdbc.initialSize=10
+jdbc.maxActive=50
+jdbc.minIdle=10
+jdbc.maxIdle=20
+jdbc.maxWait=60000

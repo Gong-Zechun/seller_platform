@@ -1,0 +1,76 @@
+#*页面元素*#
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="expires" content="0"/>
+
+
+#*获取路径*#
+#*
+#set($path=$request.contextPath)
+#set($scheme=$request.scheme)
+#set($serverName=$request.serverName)
+#set($serverPort=$request.serverPort)
+#set($basePath=$scheme+"://"+$serverName+":"+$serverPort+$path+"/")*#
+
+##设置Global官网首页地址
+#set($golbalIndexUrl="http://www.transn.com/index.html")
+
+#*引入CSS*#
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>    
+<link rel="stylesheet" type="text/css" href="/css/z_global.css"/>
+<link rel="stylesheet" type="text/css" href="/css/webuploader.css"/>
+
+#*引入JS libary*#
+<script type="text/javascript" src="/jslib/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/jslib/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/jslib/colResizable-1.6.min.js"></script>
+<script type="text/javascript" src="/jslib/bootstrap.min.js"></script>
+<script type="text/javascript" src="/jslib/webuploader.min.js"></script>
+<script type="text/javascript" src="/jslib/layer.js"></script>
+<script type="text/javascript" src="/jslib/foundation-datepicker.js"></script>
+<script type="text/javascript" src="/jslib/foundation-datepicker.zh-CN.js"></script>
+
+#*引入RSA JS加密 libary，默认不引入，参数控制*#
+<script type="text/javascript" src="/jslib/Barrett.js"></script>
+<script type="text/javascript" src="/jslib/BigInt.js"></script>
+<script type="text/javascript" src="/jslib/RSA.js"></script>
+
+#*引入本地JS*#
+<script type="text/javascript">
+	/**
+ 	  * 定义系统参数
+ 	  */
+ 	var BASE_URL ='/transn/ELS/transnsg';
+	var vt = vt || {};
+	vt.version = "201612220920";
+	vt.GOLBAL_INDEX_URL = "$!golbalIndexUrl";
+</script>
+<script type="text/javascript" src="/scripts/extendJquery.js"></script>
+<script type="text/javascript" src="/scripts/js/common.js"></script>
+<script type="text/javascript" src="/scripts/pages/global.js"></script>
+<script type="text/javascript" src="/scripts/laypage/laypage.js"></script>
+<script type="text/javascript" src="/scripts/pages/userInfo.js"></script>
+
+<script type="text/javascript">
+	#*在线客服代码*#
+	#*Start of Zopim Live Chat Script*#
+    window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+            d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+    _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+        $.src="//v2.zopim.com/?2zHf053q7Ha9eGmrddwsGnkD9e1UqeIV";z.t=+new Date;$.
+                type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+	#*End of Zopim Live Chat Script*#
+	
+	#*谷歌统计代码 *#
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');	
+	  ga('require', 'displayfeatures');
+	  ga('create', 'UA-85621637-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	#*谷歌统计代码 *#
+</script>

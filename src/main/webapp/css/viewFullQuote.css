@@ -1,0 +1,133 @@
+/*banner*/
+.myOrderbanner2{
+	position:relative;
+}
+.myOrderbanner2 img{
+	width:100%;
+	height:auto;
+	background-size: cover;	
+}
+.myMiddleText{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 2em;
+	font-weight: 500;
+}
+
+
+/*main*/
+.order2-main{
+	padding:6.25em 0 10em 0;
+}
+
+/*线*/
+.mynewline .mynewline-left{
+	float:left;
+	width:42.25%;
+	height:2px;
+	border-top:2px solid #999999;
+	margin-top:10px;
+}
+.mynewline .mynewline-middle{
+	float:left;
+	width:15%;
+	text-align: center;
+}
+
+.mynewline .mynewline-right{
+	float:left;
+	width:42.25%;
+	height:2px;
+	border-top:2px solid #999999;
+	margin-top:10px;
+}
+/*第一部份表格*/
+.order2-main-table{
+	padding:2em 0 4em 0;
+}
+.order2-main-table table{
+	width:100%;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border:1px solid #fff;
+}
+
+.order2-main-table table thead{
+	background:#fddad4;
+	
+}
+.order2-main-table table thead td{
+	border:2px solid #fff;
+	padding:.7em 0;
+	border-radius: 6px;
+}
+
+.order2-main-table table tbody{
+	background:#f7f7f7;
+}
+
+.order2-main-table table tbody td{
+	border:2px solid #fff;
+	padding:1em 0;
+	border-radius: 6px;
+}
+.myTextBox{
+	margin:2em 0em 6em 0em;
+	padding:1em 0 2em 1em;
+	border:1px solid #999;
+}
+.myTextBox p{
+	padding:.5em 0;
+}
+
+
+/*线*/
+.mynewline1{
+	margin-bottom:4em;
+}
+.mynewline1 .mynewline1-left{
+	float:left;
+	width:35%;
+	height:2px;
+	border-top:2px solid #999999;
+	margin-top:10px;
+}
+.mynewline1 .mynewline1-middle{
+	float:left;
+	width:30%;
+	text-align: center;
+}
+
+.mynewline1 .mynewline1-right{
+	float:left;
+	width:35%;
+	height:2px;
+	border-top:2px solid #999999;
+	margin-top:10px;
+}
+.hasred{
+	color: #e03e25;
+}
+
+.download{
+	background:#e03e25;
+	padding:1em 2em;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 6px;
+	font-size: 1.2em;
+	display: block;
+	width:15em;
+	margin: 0 auto;
+}
+.download img{
+	margin-right:1em;
+}
+.download:hover{
+	background:#f82e0f;
+	color: #fff;
+}

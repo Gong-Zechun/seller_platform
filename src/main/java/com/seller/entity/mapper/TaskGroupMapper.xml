@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seller.entity.dao.TaskGroupMapper">
+  <resultMap id="BaseResultMap" type="com.seller.entity.model.TaskGroup">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="TASK_TYPE" jdbcType="CHAR" property="taskType" />
+    <result column="TASK_ENTRANCE" jdbcType="CHAR" property="taskEntrance" />
+    <result column="GOODS_URL" jdbcType="VARCHAR" property="goodsUrl" />
+    <result column="GOODS_TITLE" jdbcType="VARCHAR" property="goodsTitle" />
+    <result column="SELLER_SHOP_ID" jdbcType="VARCHAR" property="sellerShopId" />
+    <result column="SEARCH_KEYWORD" jdbcType="VARCHAR" property="searchKeyword" />
+    <result column="CONDITION_IMG_URL" jdbcType="VARCHAR" property="conditionImgUrl" />
+    <result column="SEARCH_IMG_URL" jdbcType="VARCHAR" property="searchImgUrl" />
+    <result column="STAY_TIME" jdbcType="CHAR" property="stayTime" />
+    <result column="CUSTOM_SERVICE_CHAT_FLAG" jdbcType="CHAR" property="customServiceChatFlag" />
+    <result column="SPECIAL_CONDITION" jdbcType="VARCHAR" property="specialCondition" />
+    <result column="CONDITION_SEXUAL" jdbcType="CHAR" property="conditionSexual" />
+    <result column="CONDITION_AGE" jdbcType="CHAR" property="conditionAge" />
+    <result column="ADDITIONAL_CHOOSE" jdbcType="VARCHAR" property="additionalChoose" />
+    <result column="PUBLISH_DATE" jdbcType="TIMESTAMP" property="publishDate" />
+    <result column="PUBLISH_AMOUNT" jdbcType="INTEGER" property="publishAmount" />
+    <result column="PUBLISH_TIME_PERIOD" jdbcType="VARCHAR" property="publishTimePeriod" />
+    <result column="CHECK_FLAG" jdbcType="CHAR" property="checkFlag" />
+    <result column="TASK_GROUP_STATUS" jdbcType="CHAR" property="taskGroupStatus" />
+    <result column="CREATE_BY" jdbcType="INTEGER" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY" jdbcType="INTEGER" property="updateBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="DEL_FLAG" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, USER_ID, TASK_TYPE, TASK_ENTRANCE, GOODS_URL, GOODS_TITLE, SELLER_SHOP_ID, SEARCH_KEYWORD, 
+    CONDITION_IMG_URL, SEARCH_IMG_URL, STAY_TIME, CUSTOM_SERVICE_CHAT_FLAG, SPECIAL_CONDITION, 
+    CONDITION_SEXUAL, CONDITION_AGE, ADDITIONAL_CHOOSE, PUBLISH_DATE, PUBLISH_AMOUNT, 
+    PUBLISH_TIME_PERIOD, CHECK_FLAG, TASK_GROUP_STATUS, CREATE_BY, CREATE_TIME, UPDATE_BY, 
+    UPDATE_TIME, REMARKS, DEL_FLAG
+  </sql>
+  <select id="selectByExample" parameterType="com.seller.entity.model.TaskGroupExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TASK_GROUP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.seller.entity.model.TaskGroupExample">
+    delete from TASK_GROUP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertSelective" parameterType="com.seller.entity.model.TaskGroup">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into TASK_GROUP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="taskType != null">
+        TASK_TYPE,
+      </if>
+      <if test="taskEntrance != null">
+        TASK_ENTRANCE,
+      </if>
+      <if test="goodsUrl != null">
+        GOODS_URL,
+      </if>
+      <if test="goodsTitle != null">
+        GOODS_TITLE,
+      </if>
+      <if test="sellerShopId != null">
+        SELLER_SHOP_ID,
+      </if>
+      <if test="searchKeyword != null">
+        SEARCH_KEYWORD,
+      </if>
+      <if test="conditionImgUrl != null">
+        CONDITION_IMG_URL,
+      </if>
+      <if test="searchImgUrl != null">
+        SEARCH_IMG_URL,
+      </if>
+      <if test="stayTime != null">
+        STAY_TIME,
+      </if>
+      <if test="customServiceChatFlag != null">
+        CUSTOM_SERVICE_CHAT_FLAG,
+      </if>
+      <if test="specialCondition != null">
+        SPECIAL_CONDITION,
+      </if>
+      <if test="conditionSexual != null">
+        CONDITION_SEXUAL,
+      </if>
+      <if test="conditionAge != null">
+        CONDITION_AGE,
+      </if>
+      <if test="additionalChoose != null">
+        ADDITIONAL_CHOOSE,
+      </if>
+      <if test="publishDate != null">
+        PUBLISH_DATE,
+      </if>
+      <if test="publishAmount != null">
+        PUBLISH_AMOUNT,
+      </if>
+      <if test="publishTimePeriod != null">
+        PUBLISH_TIME_PERIOD,
+      </if>
+      <if test="checkFlag != null">
+        CHECK_FLAG,
+      </if>
+      <if test="taskGroupStatus != null">
+        TASK_GROUP_STATUS,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="taskType != null">
+        #{taskType,jdbcType=CHAR},
+      </if>
+      <if test="taskEntrance != null">
+        #{taskEntrance,jdbcType=CHAR},
+      </if>
+      <if test="goodsUrl != null">
+        #{goodsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsTitle != null">
+        #{goodsTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerShopId != null">
+        #{sellerShopId,jdbcType=VARCHAR},
+      </if>
+      <if test="searchKeyword != null">
+        #{searchKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="conditionImgUrl != null">
+        #{conditionImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="searchImgUrl != null">
+        #{searchImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="stayTime != null">
+        #{stayTime,jdbcType=CHAR},
+      </if>
+      <if test="customServiceChatFlag != null">
+        #{customServiceChatFlag,jdbcType=CHAR},
+      </if>
+      <if test="specialCondition != null">
+        #{specialCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="conditionSexual != null">
+        #{conditionSexual,jdbcType=CHAR},
+      </if>
+      <if test="conditionAge != null">
+        #{conditionAge,jdbcType=CHAR},
+      </if>
+      <if test="additionalChoose != null">
+        #{additionalChoose,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null">
+        #{publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishAmount != null">
+        #{publishAmount,jdbcType=INTEGER},
+      </if>
+      <if test="publishTimePeriod != null">
+        #{publishTimePeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFlag != null">
+        #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="taskGroupStatus != null">
+        #{taskGroupStatus,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.seller.entity.model.TaskGroupExample" resultType="java.lang.Long">
+    select count(*) from TASK_GROUP
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update TASK_GROUP
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskType != null">
+        TASK_TYPE = #{record.taskType,jdbcType=CHAR},
+      </if>
+      <if test="record.taskEntrance != null">
+        TASK_ENTRANCE = #{record.taskEntrance,jdbcType=CHAR},
+      </if>
+      <if test="record.goodsUrl != null">
+        GOODS_URL = #{record.goodsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsTitle != null">
+        GOODS_TITLE = #{record.goodsTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellerShopId != null">
+        SELLER_SHOP_ID = #{record.sellerShopId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.searchKeyword != null">
+        SEARCH_KEYWORD = #{record.searchKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.conditionImgUrl != null">
+        CONDITION_IMG_URL = #{record.conditionImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.searchImgUrl != null">
+        SEARCH_IMG_URL = #{record.searchImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stayTime != null">
+        STAY_TIME = #{record.stayTime,jdbcType=CHAR},
+      </if>
+      <if test="record.customServiceChatFlag != null">
+        CUSTOM_SERVICE_CHAT_FLAG = #{record.customServiceChatFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.specialCondition != null">
+        SPECIAL_CONDITION = #{record.specialCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.conditionSexual != null">
+        CONDITION_SEXUAL = #{record.conditionSexual,jdbcType=CHAR},
+      </if>
+      <if test="record.conditionAge != null">
+        CONDITION_AGE = #{record.conditionAge,jdbcType=CHAR},
+      </if>
+      <if test="record.additionalChoose != null">
+        ADDITIONAL_CHOOSE = #{record.additionalChoose,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishDate != null">
+        PUBLISH_DATE = #{record.publishDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.publishAmount != null">
+        PUBLISH_AMOUNT = #{record.publishAmount,jdbcType=INTEGER},
+      </if>
+      <if test="record.publishTimePeriod != null">
+        PUBLISH_TIME_PERIOD = #{record.publishTimePeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkFlag != null">
+        CHECK_FLAG = #{record.checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="record.taskGroupStatus != null">
+        TASK_GROUP_STATUS = #{record.taskGroupStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.createBy != null">
+        CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null">
+        UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null">
+        REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delFlag != null">
+        DEL_FLAG = #{record.delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update TASK_GROUP
+    set ID = #{record.id,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER},
+      TASK_TYPE = #{record.taskType,jdbcType=CHAR},
+      TASK_ENTRANCE = #{record.taskEntrance,jdbcType=CHAR},
+      GOODS_URL = #{record.goodsUrl,jdbcType=VARCHAR},
+      GOODS_TITLE = #{record.goodsTitle,jdbcType=VARCHAR},
+      SELLER_SHOP_ID = #{record.sellerShopId,jdbcType=VARCHAR},
+      SEARCH_KEYWORD = #{record.searchKeyword,jdbcType=VARCHAR},
+      CONDITION_IMG_URL = #{record.conditionImgUrl,jdbcType=VARCHAR},
+      SEARCH_IMG_URL = #{record.searchImgUrl,jdbcType=VARCHAR},
+      STAY_TIME = #{record.stayTime,jdbcType=CHAR},
+      CUSTOM_SERVICE_CHAT_FLAG = #{record.customServiceChatFlag,jdbcType=CHAR},
+      SPECIAL_CONDITION = #{record.specialCondition,jdbcType=VARCHAR},
+      CONDITION_SEXUAL = #{record.conditionSexual,jdbcType=CHAR},
+      CONDITION_AGE = #{record.conditionAge,jdbcType=CHAR},
+      ADDITIONAL_CHOOSE = #{record.additionalChoose,jdbcType=VARCHAR},
+      PUBLISH_DATE = #{record.publishDate,jdbcType=TIMESTAMP},
+      PUBLISH_AMOUNT = #{record.publishAmount,jdbcType=INTEGER},
+      PUBLISH_TIME_PERIOD = #{record.publishTimePeriod,jdbcType=VARCHAR},
+      CHECK_FLAG = #{record.checkFlag,jdbcType=CHAR},
+      TASK_GROUP_STATUS = #{record.taskGroupStatus,jdbcType=CHAR},
+      CREATE_BY = #{record.createBy,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{record.updateBy,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      REMARKS = #{record.remarks,jdbcType=VARCHAR},
+      DEL_FLAG = #{record.delFlag,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

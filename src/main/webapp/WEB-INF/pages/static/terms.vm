@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>FAQ</title>
+    <!--[if lte IE 9]><script type="text/javascript">window.location.href = 'update-browser.html';</script><![endif]-->
+    #parse("/common/include.vm")
+</head>
+<body>
+<div class="warp">
+    ##引入header部分
+    #parse("/common/header.vm")
+
+    <div class="content">
+        <h2 class="title">Terms & Condition</h2>
+        <p>By using our Service, you are agree to these terms. Please read them carefully.</p>
+
+        <h3 class="title1">1. DEFINITIONS</h3>
+        <p class="mb">"You" means you as an individual, or if applicable, the company or other legal entity you represent.</p>
+        <p class="mb">"Users"means visitors to this website or the Service who are not registered users.</p>
+        <p class="mb">"Customers" means visitors who are also registered users of the Service.</p>
+        <p class="mb">"Translators”means third parties who engage with Transn and Customer to provide content translation services as contractors of Transn (not employees).</p>
+        <p class="mb">"Service"means all the Transn.com websites, services, apps, and related technology, and the translation services provided in connection with the foregoing.</p>
+        <p class="mb">"Orders" means any order for Services created by a Customer, and accepted by Transn via acknowledge in the Platform or otherwise in writing.</p>
+        <p class="mb">"Client Materials" means the source content for translation by the Service, and any guidelines, glossary and other materials provided by Customer.</p>
+        <p class="mb">"Translated Works" means the content translated from the Client Materials.</p>
+        <p class="mb">"Transn Quality Policy" is located at http://Transn.com/quality-policy/</p>
+        <p class="mb">"Quality Levels" are defined and described in the Transn Quality Policy (e.g., Standard, Business, Ultra, Specialist)</p>
+        <p class="mb">"Platform" means Transn’s online portal and platform where you can access your Transn Account, initiate Orders and access the Service.</p>
+        <p>"TOS" means these Transn Terms of Service and any policies, guidelines, or other documents referenced herein.</p>
+
+        <h3 class="title1">2. USING OUR SERVICES</h3>
+        <p class="mb">If You are entering into this TOS on behalf of a company or other legal entity, You represent that You have the legal authority to bind the legal entity to this TOS, in which case "You" or "Your" means that entity. If You do not have this authority, or if You do not agree with the terms and conditions of this TOS, and You may not use the Service or any Service related materials. You represent that you are 18 years of age, or of the age of majority in your place of residence or jurisdiction.</p>
+        <p class="mb">You agree to:</p>
+        <p class="mb">
+            Be responsible for the activity that happens in connection with your Transn account <br/>
+            Keep your password confidential<br/>
+            Comply with any policies made available to you by Transn<br/>
+            Not abuse or conduct illegal activity using our Service<br/>
+            Not contact Translators outside of the Platform that Transn provides for communication<br/>
+            Not defame or harass Transn, or its employees, contractors, or Translators<br/>
+            Transn may suspend or terminate your access to the Service or an Order if you do not comply with this TOS or if we suspect misconduct, fraudulent activities or payment, or a violation of this TOS, with or without notice.<br/>
+        </p>
+        <p class="mb">Transn may modify or suspend the Platform or Service, at any time for any reason.</p>
+
+        <h3 class="title1">3. ORDERS, APPROVAL</h3>
+
+        <p class="mb">Account and Credits. Before initiating an Order, You must first register as a Customer and create a Transn account. You agree to keep all account information updated and accurate at all times. You may not create multiple user accounts for any reason. Any personal information you provide will be subject to the Transn Privacy Policy.</p>
+        <p class="mb">Payment. Before initiating an Order, you must buy sufficient Transn credits for the Services you desire to purchase. Transn credits are non-refundable and can be purchased here.</p>
+        <p class="mb">Transn will apply gross-up calculation to the payment. This means that the payment to Transn must be made in cleared funds, without any deduction or set-off and free and clear of and without deduction for or on account of any taxes, levies, imports, duties, charges, fees and withholdings of any nature now or hereafter imposed by any governmental, fiscal or other authority save as required by law. If you are compelled to make any such deduction, you will pay Transn any additional amounts as are necessary to ensure receipt by Transn of the full amount it would have received but for the deduction.</p>
+        <p class="mb">Order. You can initiate an Order by providing all the required information via the Platform, including the Quality Level for your translation as described in the Transn Quality Policy.</p>
+        <p class="mb70">Client Materials. Customer is responsible for providing the Client Materials to be translated, materials describing the context of the translation, and all other necessary materials (glossary guide, etc.) when placing the Order. Transn may make recommendations on which source materials and in what format to provide source materials, but ultimately the quality of the results will depend on the clarity, accuracy, and comprehensiveness of the Customer’s source materials and instructions provided.</p>
+        <p class="mb">Cancellations. Customer can cancel any Order if the project has not yet been engaged by a Translator. To attempt to cancel an Order, contact Transn customer support at to see if the Order can be cancelled. If the Order has been picked up by a Translator, the Order cannot be cancelled and there will be no refund of credits.</p>
+        <p class="mb">Translated Works. Transn cannot guarantee that a particular Translator or that any Translator will engage on your Order. If the Order is engaged by a Translator, Transn will return the Translated Works to Client according to the quality level specified in the Order. Transn gives an estimated time for Service completion, but cannot guarantee an exact delivery time. We will email you when the Translated Works are ready for your review.</p>
+        <p class="mb">Approval or Rejection. Upon Transn’s notification of delivery of the Translated Works, Customer will have 120 hours to review the Translated Works. Customer may approve the Translated Works via the Platform. If Customer does not respond within the 120 hour review period, the Translated Works will be deemed "Approved". Alternatively, Customer may reject the Translated Works within the 120 hour review period if it reasonably determines that it does not meet the Quality Level that was ordered. We will typically get back to you within one business day.</p>
+        <p class="mb">Due to the nature of language translation, errors in translations will inevitably occur. But if Transn determines that the Translated Works that you have rejected did not meet the quality level specified in the Order, then Transn will correct and resubmit the Translated Works within a reasonable time frame. Transn’s liability will be limited to correcting such errors.</p>
+        <p class="mb">Disclaimer. You agree to review any Translated Works before making such content public, and you expressly agree that Transn will not have any liability or indemnity obligations to you based on the Translated Works if you fail to do so.</p>
+
+        <h3 class="title1">4. TRANSLATORS; CONTRACTORS.</h3>
+        <p class="mb">Transn may use and retain third party contractors (such as Translators) to provide the Service to you. As such, you agree that Transn may sub-license its rights under this TOS to third parties to act on Transn’s behalf, provided that such third parties are contractually bound by terms no less protective of Customer than this TOS. Transn is solely responsible for paying and resolving all disputes with third party contractors and Translators.</p>
+
+        <h3 class="title1">5. CLIENT MATERIALS DISCLOSURE</h3>
+        <p class="mb70">We disclose the Client Materials to potential Translators and contractors, for the sole purpose of allowing him/her to preview the content in order to decide whether to engage the Order. You are solely responsible for editing or removing any confidential or personally identifiable information the Client Materials if you do not wish to disclose that information.</p>
+
+        <h3 class="title1">6. INTELLECTUAL PROPERTY</h3>
+        <p class="mb">All intellectual property rights in the Translated Works will be assigned to Customer upon Customer’s Approval of the Translated Works and Your compliance with this TOS.</p>
+        <p class="mb">The trademarks, names, logos and service marks (collectively "Trademarks") such as "Transn", "myTransn", and "Communicate Freely", are trademarks of Transn. Nothing contained in this TOS shall be construed as granting any license or right to use any Trademark without Transn’s prior written permission. The content on the Service is protected by intellectual property laws and may not be copied, distributed, modified, published, or transmitted in any manner.</p>
+        <p class="mb">Third party content and trademarks displayed on the Service are owned by their respective owners and may not be reproduced in whole, or in part, without the express written permission of the owner.</p>
+        <p class="mb">If you opt in to allow Transn to use your Translated Works as "public examples," you grant Transn a worldwide, perpetual, royalty-free, irrevocable, license to publish and display your Client Materials and related Translated Works in connection with operating, promoting, and improving our Services. This license continues even if you stop using our Services.</p>
+        <p class="mb">If you submit feedback or suggestions about our Services, we may use your feedback or suggestions without obligation to you.</p>
+        <p class="mb">In order to provide you and our other customers the best possible translation and language services, we (and those we work with) may use your Translated Works, as aggregated with other customer works, to generally improve the Services (for example, fine tune our turn around time estimates, or improve machine translation and machine learning systems). If we do this, we never disclose your identity or confidential information, nor make your Translated Works publicly available.</p>
+
+        <h3 class="title1">7. ABOUT APIS AND SOFTWARE IN OUR SERVICE</h3>
+        <p class="mb">The Service may include APIs or software ("Transn Materials") to facilitate your use of the Service and is deemed a part of the Service. If you choose to use such Transn Materials, Transn grants you a personal, worldwide, royalty-free, non-assignable and non-exclusive license to use the Transn Materials for the sole purpose of enabling you to use and enjoy the benefit of the Services</p>
+    </div>
+
+    <div class="footer term-footer">
+        <div class="center">
+            <div class="footer-bot">
+                <p><a href="/toPrivacyPage">Privacy policy</a>｜<a href="#">Terms&Condition</a>｜&nbsp;&nbsp;&nbsp;&nbsp;Copyright © 2016 Transn Co., Ltd, All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+##<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#&style=-1"></script>
+##script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC3.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+package com.util;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import net.sf.json.JSONArray;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.Map;
+
+/**
+ * Json处理工具类
+ * @author Allen Gong
+ * @version V1.0
+ * @date 2016-10-19 16:44
+ */
+public class JsonUtil {
+    public static final ObjectMapper JSON_MAPPER_NOTNULL = new ObjectMapper();
+
+    static {
+        JSON_MAPPER_NOTNULL.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        JSON_MAPPER_NOTNULL.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        JSON_MAPPER_NOTNULL.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+        JSON_MAPPER_NOTNULL.setLocale(Locale.getDefault());
+    }
+    
+	/**
+	 * 将对象转换json数据
+	 */
+	public static String toJSON(Object bean) {
+		String s = JSONArray.fromObject(bean).toString();
+		return s;
+	}
+
+    /**
+     * 将JavaBean转换为json字符串
+     * @param object JavaBean对象（可以为普通对象、List或者Map）
+     * @return json字符串
+     */
+    public static String toJsonStr(Object object) {
+        try {
+            return JSON_MAPPER_NOTNULL.writeValueAsString(object);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static <T> T readValue(String content, Class<T> valueType) {
+        try {
+            return JSON_MAPPER_NOTNULL.readValue(content, valueType);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * json字符串转为Map<String, Map<String, String>>
+     * @param content 传入的json字符串
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+	public static Map<String, Map<String, String>> json2Map(String content) {
+        try {
+            return JSON_MAPPER_NOTNULL.readValue(content, Map.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}

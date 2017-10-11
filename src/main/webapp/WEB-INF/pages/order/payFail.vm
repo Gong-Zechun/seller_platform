@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>payFail</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;	
+				box-sizing: border-box;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+				position:relative;
+				background:#999;
+			}
+			.z_pay{
+				width:600px;
+				padding:40px 50px;
+				position:absolute;
+				left:50%;
+				top:50%;
+				transform: translate(-50%,-50%);
+				-webkit-transform: translate(-50%,-50%);
+				-o-transform: translate(-50%,-50%);
+				-moz-transform: translate(-50%,-50%);
+				-ms-transform: translate(-50%,-50%);
+				background:#fff;
+				border-radius: 8px;
+			}
+			.z_pay-top1{
+				padding:10px 0px;
+			}
+			.z_pay-top1 img{
+				vertical-align: middle;
+				width:50px;
+				height:auto;
+			}
+			.z_pay-top1 span{							
+				
+				vertical-align: middle;
+				padding-left:20px;
+			}
+			
+			.z-pay-btn-box{
+				padding:80px 0 10px 0;
+			}
+			.z-pay-btn-box button{
+				padding:15px 10px;
+				border:none;
+				background:#e03e25;
+				color: #fff;
+				font-size: 18px;
+				font-weight: 600;
+				border-radius: 8px;
+				cursor: pointer;
+			}
+			.z-btn2{
+				margin-left:60px;
+			}
+			
+			.z-flase{
+				position:absolute;
+				right:10px;
+				top:10px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="z_pay">
+			<div class="z_pay-top1">
+				<img src="/images/fail.jpg" /><span>Payment failed. System error. Please try again later.</span>
+			</div>
+			
+			<div class="/z-pay-btn-box">
+				<button><a href="/contactUs">Contact Customer Service</a></button> <button class="z-btn2"><a href="/order/orderList">Order management</a></button>
+			</div>
+			<img src="/images/z-flase.jpg" class="z-flase" />
+		</div>
+	</body>
+</html>

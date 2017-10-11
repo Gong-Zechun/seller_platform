@@ -1,0 +1,118 @@
+.part1{
+	padding:7em 0;
+}
+.part1 .part1-news{
+	width:100%;
+	text-align: center;
+	font-size:1.2em;
+	padding-bottom:3em;
+	}
+.part1 .part1-news p a{
+	color:#e03e25 ;
+}
+.part1 .part1-news p .myemail1{
+	text-decoration: underline;
+}
+.part1-order{
+	padding-top:3em;
+}
+
+.part1-order-left{
+	width:30%;
+	padding-left:10em;
+	float:left;
+}
+.part1-order-left span{
+	width:30px;
+	height:30px;
+	display:block;
+	border-radius:50%;
+	background:#fddad4;
+	position:relative;
+	
+}
+.part1-order-left span em{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+}
+.part1-order-left .mygang{
+	width:1px;
+	height:4em;
+	border-left:1px dashed #999;
+	margin-left:15px;
+}
+
+
+.part1-order-right{
+	float:left;
+	width:70%;
+}
+
+.part1-order-right .mygang1{
+	width:1px;
+	height:4em;
+	margin-left:15px;
+}
+
+.part1-order-right select{
+	width:30%;
+	height:30px;
+}
+
+.select-box select:nth-child(1){
+	margin-right:10%;
+}
+
+.part1-order-right input{
+	width:30%;
+	height:30px;
+}
+.part1-order-right-order{
+	padding:.5em 1em;
+	color: #fff;
+	background:#e03e25;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.myorderprice{
+	width:70%;
+	margin-top:6em;
+	padding:.875em 0;
+	background:#e03e25;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 1.2em;
+}
+
+.myborder{
+	box-shadow: 0px 0px 1px 1px #e03e25;
+	z-index:100;
+}
+
+
+/*适配*/
+@media (max-width:640px ) {
+	.part1-order-left{
+		width:15%;
+		padding-left:2em;
+	}
+	.part1-order-right{
+		width:80%;
+		padding-left:1em;
+	}
+	.part1-order-right select{
+		width:40%;
+	}
+	.part1-order-right input{
+		width:40%;
+	}
+}
