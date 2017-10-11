@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.seller.plugin.LoginAccess;
 import com.util.DateUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
@@ -127,44 +128,27 @@ public class SellerLoginController extends BaseController{
 
     /**
      * 获取商家店铺ID
-     * @param jsonObj
      * @return
      */
     @RequestMapping(value="/sellerShopId", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    public String getSellerShopId(@RequestBody JSONObject jsonObj) {
+    public String getSellerShopId() {
         try {
-            if(MapUtils.isEmpty(jsonObj)) {
-                return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
-            }
-            String phone = jsonObj.getString("phone");
-            if(StringUtils.isBlank(phone)) {
-                return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
-            }
-            User sessionUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
-            User user = new User();
-            if(sessionUser != null) {
-                user.setSellerShopId1(sessionUser.getSellerShopId1());
-                if(StringUtils.isNotBlank(sessionUser.getSellerShopId2())) {
-                    user.setSellerShopId2(sessionUser.getSellerShopId2());
-                }
-                if(StringUtils.isNotBlank(sessionUser.getSellerShopId3())) {
-                    user.setSellerShopId3(sessionUser.getSellerShopId3());
-                }
-            }else {
+            /**
+             * 登录校验
+             */
+            User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
+            if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
-//                User tempUser = userService.getUserByPhone(phone);
-//                if(tempUser != null) {
-//                    user.setSellerShopId1(tempUser.getSellerShopId1());
-//                    if(StringUtils.isNotBlank(tempUser.getSellerShopId2())) {
-//                        user.setSellerShopId2(tempUser.getSellerShopId2());
-//                    }
-//                    if(StringUtils.isNotBlank(tempUser.getSellerShopId3())) {
-//                        user.setSellerShopId3(tempUser.getSellerShopId3());
-//                    }
-//                }else {
-//                    return returnErrorInfo(ErrorCode.ERROR_CODE_3008);
-//                }
+            }
+
+            User user = new User();
+            user.setSellerShopId1(tempUser.getSellerShopId1());
+            if(StringUtils.isNotBlank(tempUser.getSellerShopId2())) {
+                user.setSellerShopId2(tempUser.getSellerShopId2());
+            }
+            if(StringUtils.isNotBlank(tempUser.getSellerShopId3())) {
+                user.setSellerShopId3(tempUser.getSellerShopId3());
             }
             BaseEntity baseEntity = new BaseEntity();
             baseEntity.setData(user);
@@ -180,25 +164,21 @@ public class SellerLoginController extends BaseController{
 
     /**
      * 获取模板名称
-     * @param jsonObj
      * @return
      */
     @RequestMapping(value="/templateName", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    public String getTemplateName(@RequestBody JSONObject jsonObj) {
+    public String getTemplateName() {
         try {
-            if(MapUtils.isEmpty(jsonObj)) {
-                return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
-            }
-            String phone = jsonObj.getString("phone");
-            if(StringUtils.isBlank(phone)) {
-                return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
-            }
-            User user = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
-            if(user == null) {
+            /**
+             * 登录校验
+             */
+            User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
+            if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
             }
-            List<TaskGroupTemplate> taskGroupTemplateList =  taskGroupTemplateService.getTemplateName(user.getId());
+
+            List<TaskGroupTemplate> taskGroupTemplateList =  taskGroupTemplateService.getTemplateName(tempUser.getId());
             if(CollectionUtils.isEmpty(taskGroupTemplateList)) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_1001);
             }
@@ -230,6 +210,9 @@ public class SellerLoginController extends BaseController{
             if(StringUtils.isBlank(templateName)) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
             }
+            /**
+             * 登录校验
+             */
             User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
             if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
@@ -295,9 +278,12 @@ public class SellerLoginController extends BaseController{
                     || StringUtils.isBlank(taskGroup.getGoodsTitle())) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
             }
+            /**
+             * 登录校验
+             */
             User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
             if(tempUser == null) {
-                return returnErrorInfo(ErrorCode.ERROR, "用户未登录");
+                return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
             }
             taskGroup.setUserId(tempUser.getId());
             int insertFlag = taskGroupService.publishTaskGroup(taskGroup);
@@ -331,6 +317,9 @@ public class SellerLoginController extends BaseController{
                 return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
             }
 
+            /**
+             * 登录校验
+             */
             User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
             if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
@@ -367,6 +356,9 @@ public class SellerLoginController extends BaseController{
     @ResponseBody
     public String sellerInfoBrief() {
         try {
+            /**
+             * 登录校验
+             */
             User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
             if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
@@ -398,6 +390,9 @@ public class SellerLoginController extends BaseController{
     @ResponseBody
     public String sellerInfoDetail() {
         try {
+            /**
+             * 登录校验
+             */
             User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
             if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
@@ -431,6 +426,9 @@ public class SellerLoginController extends BaseController{
                 return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
             }
 
+            /**
+             * 登录校验
+             */
             User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
             if(tempUser == null) {
                 return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
@@ -467,6 +465,7 @@ public class SellerLoginController extends BaseController{
      */
     @RequestMapping(value="/unProcessTask", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
+    @LoginAccess
     public String unProcessTask(@RequestBody JSONObject jsonObj) {
         try {
             /**
@@ -502,6 +501,41 @@ public class SellerLoginController extends BaseController{
             return returnErrorInfo(ErrorCode.ERROR);
         }
     }
+
+    /**
+     * 获取进行中任务组
+     * @param jsonObj
+     * @return
+     */
+    @RequestMapping(value="/runningTaskGroup", method = RequestMethod.POST, consumes = "application/json")
+    @ResponseBody
+    public String runningTaskGroup(@RequestBody JSONObject jsonObj) {
+        try {
+            /**
+             * 登录校验
+             */
+            User tempUser = (User)WebUtils.getSessionAttribute(request, FieldConst.USER);
+            if(tempUser == null) {
+                return returnErrorInfo(ErrorCode.ERROR_CODE_3026);
+            }
+
+            if(MapUtils.isEmpty(jsonObj)) {
+                return returnErrorInfo(ErrorCode.ERROR_CODE_1005);
+            }
+
+
+
+            return null;
+        }catch (MeException e) {
+            logger.error("SellerLoginController-runningTaskGroup", e);
+            return returnErrorInfo(e.getMessageKey(), e.getMessage());
+        }catch (Exception e) {
+            logger.error("SellerLoginController-runningTaskGroup-未知错误", e);
+            return returnErrorInfo(ErrorCode.ERROR);
+        }
+    }
+
+
 
 
 
